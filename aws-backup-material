@@ -1,0 +1,53 @@
+what is AWS Backup:
+aws Backup vault is a container to organize the our backups in the our regions 
+ aws Backup is used in containerazion the data to across the multiple regions 
+
+ with using policy roles and and tags we can Backup easily 
+
+ aws Backup is support to the below services 
+ 1) rds
+ 2) dynamo db
+ 3) ebs volumes 
+ 4) efs
+ 5) arora 
+ 6) doccument db
+ 7) neptune
+ 8)Storage-gateway
+ 9)Virtual instance
+
+ how to Create the AWS Backup
+ search in aws console 
+ enter aws backup 
+ create the aws backup cluster
+ go to backup plans
+
+
+ A backup plan is a policy expression that defines when and how you want to back up your AWS resources, such as DynamoDB tables or Amazon EFS file systems.
+ You can assign resources to backup plans, and AWS Backup then automatically backs up and retains backups for those resources according to the backup plan. You can create multiple backup plans if you have workloads with different backup requirements.
+
+ create the cluster by using template 
+ after creating the backup we can add to the rules in under rules 
+ a)select the which type of backupif u want 
+ a day or 7 days or 30 days or years 
+ we need to select 
+
+
+ then after assign the assign resourses using id or names or tags 
+ create the backupplan tags 
+
+
+ come to protected resourses 
+ Resources that have been backed up by AWS Backup are listed under protected resources. After they are listed here, you can view all backups for that resource, even ones that were not created by AWS Backup.
+
+Backup Jobs:
+Backup jobs are records created when a backup is initiated either as a scheduled backup or an on-demand backup.
+back up jobs provide relevant information about the our back up such as the status of the job 
+and if we want create repot also in backup jobs  these reports going to our s3 buckets in csv or json format
+
+after run completed jobs we can see our backups in protection resorses whether  succefully created or any failures occured we can easily identified in protection resourses 
+
+by refrense:https://youtu.be/J1KJbRXuOJQ
+https://youtu.be/TMaZU5IH_g4
+
+
+ 
