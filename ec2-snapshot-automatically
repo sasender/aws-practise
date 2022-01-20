@@ -1,0 +1,6 @@
+go to ebs section 
+clik the life cycle manager role 
+give the which instance snap shot u want 
+scdule the instance like crone 
+selcect no reboot 
+for refernse purpose https://devopscube.com/automate-ebs-snapshot-creation-deletion/
