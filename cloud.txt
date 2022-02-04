@@ -1,0 +1,38 @@
+cloud watch: using cloud watch triigering our services in alarmas and metrics 
+     account and cloud,logs
+	 
+cloud front 
+
+cloud formation:[
+  cloud formationis the infrastructure as the code 
+    we are hard to maintian manually the aws resorses and morever time aslo increased in tat senario 
+	we can write one file what we need in that account or in that particular project and we are excuted the file whenever we needed 
+    file will be in either jason or yaml format 
+    and we can resue the file also in differnrt environmensts 
+    a collection of aws resourses is called stack 
+    aws resorses can be created and updated by using stack 	
+
+cloud trail: it is the one type of service in aws it does do the auditing our account and history tracking and log tracking in our account it mostly used in organiasatiosn where can multiple users using single account it will br easily finding out the which user what he done in the account 
+
+===================================================================================
+
+Public Subnet with Route Table
+Route Table is associated with Public subnet so that the instances can establish outbound connectivity with internet through Internet Gateway.
+ex: like door in our rooms :like its allows the people inside to out side and out side to inside 
+========================================================================================================
+
+lambda function creating using cloud formation :
+  go to cloud  fromation and import the our created yaml template file :
+  \  in that file which are we mention the start and stop  lambda scripts 
+     create the stack :
+	 it will be reflected at lambda function 
+	   and give the time and dates which u want go to cloud event set the time which u want 
+	     and update the stack file in cloud formation :
+		   provide the time and days in reqired fields 
+		   ===================================================================================================
+		   
+		   
+		   
+		   
+		   
+		   

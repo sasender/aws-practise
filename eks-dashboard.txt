@@ -1,0 +1,43 @@
+kubernetes dash board:
+apt-get update
+apt-get install wget curl mlocate
+mkdir /downloads
+cd /downloads
+wget https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+- --authentication-mode=basic
+kubectl create -f recommended.yaml
+
+mkdir /etc/kubernetes/auth -p
+vi /etc/kubernetes/auth/auth.csv
+adminpass123,admin,admin,system:masters
+vi /etc/kubernetes/manifests/kube-apiserver.yaml
+kubectl -n kubernetes-dashboard get svc
+
+kubectl create serviceaccount dashboard -n default
+kubectl create clusterrolebinding dashboard-admin -n default  --clusterrole=cluster-admin  --serviceaccount=default:dashboard
+
+
+
+kubectl -n kubernetes-dashboard get svc
+
+https://www.learnitguide.net/2020/10/install-kubernetes-dashboard-deploy.html
+kubectl create service account dashboard -n default
+kubectl create clusterrolebinding dashboard-admin -n default --clusterrole=cluster-admin --serviceaccount=default:dashboard
+
+kubectl edit svc/kubernetes-dashboard -n kube-system
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6Im15VVpqVzNBbmtqM3FuM1M0LW50c3JBbzlzenZBaHQ5MmNmOXB3THgtZVEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRhc2hib2FyZC10b2tlbi1uZHp0YiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJkYXNoYm9hcmQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI0ZTMzYTBhMy0yMDQzLTQ5YzktYWUyYi04N2U3ZmEwY2UyMmQiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDpkYXNoYm9hcmQifQ.dTAjSFcR-skQTP7sH_2w1866r1LVpxNLlKpDUUXQhBUj8Fr3M7Ej6t-324SfXk7dzUJFiOEPlleIOjbq60QZgzgdWJ6CjsiBgRyhbG5sWaqFt33sRDzMbUeHZkLmriFBSUFE-NHt3pewZW9J1MEmj9zK4UEdmGVFP3q5S5TLI4z8BDocDRzjufqERBFKwe9cLZVOuhCWoA_Vk96zowkTpkB7cPVgXIakvWZWxmSAhuHmLNTW_5fNIA92PC5dl1j1n8N54iS-lFpZ1_gkZ4rv0EDh4uuwo1uKp5yoMk7YWuJ1CqPdg-loNdUiiuuA9g9Oi9Qej2cRR2Qc-MemzgQYmA
+kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+
+kubectl create clusterrolebinding dashboard-admin -n default  --clusterrole=cluster-admin  --serviceaccount=default:dashboard
+kubectl get secret $(kubectl get serviceaccount api-service-account-token-2tt55 -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+
+kubectl get secrets  api-service-account-token-rlhk8  -o=jsonpath='{.data.token}' -n dev-team | base64 --decode
+
+kubectl get serviceaccount api-service-account  -o=jsonpath='{.secrets[0].name}' -n dev-team
+
+
+
+
+
+
