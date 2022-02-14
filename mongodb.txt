@@ -78,3 +78,8 @@ mongodump --host="url provided by aws:27017" \
     --password=OlEpRoDuTiOn$2021 
 
 sudo mongodump --host="url provided by aws" --db=ole_cms -o ole_cms_bkp_11_02_22 --username=oleprodnv --password=OlEpRoDuTiOn$2021
+
+
+links:
+
+https://aws.plainenglish.io/aws-rds-how-to-smoothly-dump-and-restore-dbs-with-mysqldump-e55513c429d5 
