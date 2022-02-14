@@ -1,0 +1,80 @@
+thise file contains the how to connect the databases through cli in rds servevr or doccument db 
+-----
+---------------->>>>>>MY-SQL FROMULAS DUMP AND BACKUP AND CONNECTING FROM RDS TO OUR LOCAL INSTANSES<<<<<<<<<<<<---------
+connecting to the local server from rds mysql :
+---->>>>--------+++>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  mysql -h [paste the rds url rds.amazonaws.com] -P 3306 -u admin -p
+  -u mention user name 
+  
+  dump from rds to our local server through the backup:
+  --------=====++++++=========+++++++=================== 
+   mysqldump -h sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com -u admin -p sasha > backup_my_database_11-feb.sql
+   
+   
+   
+   
+   mysqldump -h [paste the rds url rds.amazonaws.com] -u admin -p [sasha] > backup_my_database_11-feb.sql
+   
+   sasha--- thise is the file i want to trying take backup
+   
+   
+   
+---------++++++++>>>>>>>>>====================  
+
+how to conncet the mysql server in local :
+  
+  
+  
+how to take a dump from my sql server to my local insatnces:
+
+  mysqldump -u root -p  sasha > sasha_dump.sql
+  
+  
+  restoring 
+  mysql --one-database sampledb  <  all_databases.sql
+  
+  
+  
+links:
+https://www.fastwebhost.in/blog/how-to-backup-mysql-databases-via-command-line/  
+
+
+
+========>>>>>>>>>>>>>>>>>>>>>>>>>>MONGODB<<<<<<<==============
+connecting to through commnd line :
+mongo connecting:
+   mongo --host [paste the url of doccument-db which is provided by aws:27017] --username [sasender] --password [paste the password]
+   ex:
+   mongo --host url provided by aws.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password OlEpRoDuTiOn\$2021
+
+==========++++++++++++===========>>>>>>>>>////////??????????//////////////////////////////////////////////////////////////=======================
+mongodump from documentdb:
+
+mongodump:
+   sudo mongodump --host="url provided by aws:27017" --authenticationDatabase=ole_cms -o ole_cms_bkp_11_02_22 --username=oleprodnv --password='OlEpRoDuTiOn$2021'
+  
+   sudo mongodump --host=["url of.us-east-1.docdb.amazonaws.com:27017"] --authenticationDatabase=[database-name] -o [backup-filename] --username=[provide-username] --password='pRoDuTiOn$2021'  
+
+
+
+
+=========++++++===========++++++++++++++===============+++++++++++++++=============++++++++++++++++++++++++++++================================
+
+examples:
+
+
+mongodb://oleprodnv:OlEpRoDuTiOn$2021@ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017/ole_cms
+
+
+mongo --host url provided by aws:27017 --username oleprodnv --password <insertYourPassword>
+
+
+mongodump --host="url provided by aws:27017" \
+    --db=ole_cms \
+    --out=ole_cms_bkp \
+	--numParallelCollections 1 \
+    --username=oleprodnv \
+    --password=OlEpRoDuTiOn$2021 
+
+sudo mongodump --host="url provided by aws" --db=ole_cms -o ole_cms_bkp_11_02_22 --username=oleprodnv --password=OlEpRoDuTiOn$2021
