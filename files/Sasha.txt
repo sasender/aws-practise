@@ -1,0 +1,157 @@
+-----------------------------------------------------
+credentiales:
+
+Sasha AWS Credentials:
+Username: contact@sashawear.in
+Password: pJ~Tn&EV*8a<;&@n
+ssh -i "sasha-prod.pem" ubuntu@ec2-3-108-106-174.ap-south-1.compute.amazonaws.com
+3.108.106.174
+
+ssh -i "sasha_dev.pem" ubuntu@ec2-3-109-76-32.ap-south-1.compute.amazonaws.com
+
+------------------------------------------------------
+php bin/magento maintenance:enable
+sudo rm -rf generated/
+php bin/magento setup:upgrade
+php bin/magento cache:flush
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+sudo chmod -R 777 var/* generated/* pub/static/*
+php bin/magento indexer:reindex
+
+
+php bin/magento cache:clean
+php bin/magento indexer:reindex
+sudo chmod -R 777 var/* generated/* pub/static/*
+
+
+==================++++++++++++++==============+++++++++++++++=============++++++++++++==============+++++++++++++++================
+
+deploy the code from dev to producrtion
+zip the directorys which u want deploy in production
+sudo zip -r producrtion.zip code/ design/   ---- copy the folders 
+
+scp:
+scp producrtion.zip sasha@3.108.106.174:/var/www/html/app
+
+backup the old folder : in production server
+
+sudo zip -r backup-31.zip code/ design/
+
+unzip producrtion.zip in the production server
+
+
+zip command:
+sudo zip -r producrtion.zip code/ design/
+
+============+++++++++++===============++++++++++++++================++++++++++++=========================+++++++++++++++++++==========
+
+
+
+
+
+
+
+
+
+
+
+creating zip format:
+sudo zi -r [backup folder name] directory/ directory/
+
+
+
+
+
+========++++++++++++==============+++++++++++++=================
+MY SQL WEB Server CONNECTING:;
+
+bin/magento setup:install ... --db-host='sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com' --db-name='sasha' --db-user='username' --db-password='password' ...
+
+
+
+
+<VirtualHost *:80>
+    ServerName sashawear.in
+    #ServerAlias sashawear.in
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/comingsoon
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    #Redirect permanent / http://www.sashawear.in/
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =sashawear.in
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+
+mysqldump -h sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com -u admin -p sasha > backup_my_database_11-feb.sql
+
+
+
+mysql -h sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p
+
+
+
+
+
+
+
+
+Sasha Task:-
+
+1) Set alarm for production ec2 and rds Server cpu 80%.
+2) Take AMI for production server 5 days retention.
+3) Create lambda function for development ec2 instances chk with times for madhu.
+4) update the costing sheet additional costing.
+
+
+{$.instanceID = "db-LBI7IKVGIXOUS3DGL3LXMP7ULU"}
+
+cron(30 4 ? * MON-FRI *)
+cron(30 16 ? * MON-FRI *)
+
+arn:aws:iam::427104731262:policy/s3-acces-gb-staging 
+t2.medium	$0.0496*720=$35.712
+t2.medium	$0.0496*330=$16.368
+hostname -I
+172.31.85.166
+
+
+
+
+
+
+
+
+php bin/magento maintenance:enable
+sudo rm -rf generated/
+php bin/magento setup:upgrade
+php bin/magento cache:flush
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy -f
+sudo chmod -R 0777 var/* generated/* pub/static/*
+php bin/magento indexer:reindex
+
+php bin/magento maintenance:disable
+
+
+
+
+
+
+mysqldump -u root -p  sasha > sasha_dump.sql
+ DoodleBlue@123
+
+
+
+
+
+
+
+
+
+
+
+
+
+

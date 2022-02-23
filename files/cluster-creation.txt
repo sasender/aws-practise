@@ -1,0 +1,229 @@
+curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/linux/amd64/kubectl
+dmesg | head -1
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+ apt install nodejs
+ 
+ 
+INPUT PATH:
+{"instance-id":"$.detail.instance-id", "state":"$.detail.state", "time":"$.time", "region":"$.region", "account":"$.account"}
+
+INPUT TEMPLATE:
+"At <time>, Status of your Ec2 instance <instance-id> in the AWS Region <region> has changed to <state>."
+
+
+AKIAUX76ETPXGFA5BGPE acces id 
+cEPHOMmDpn8Hsc7aPzm0HH1vLJR+e5dHgIxYj5h0
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+referd links: https://www.fosstechnix.com/how-to-create-eks-cluster-in-aws-2-steps/
+
+https://medium.com/codex/create-kubernetes-cluster-on-aws-eks-6ced4c488e62#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImNhMDA2MjBjNWFhN2JlOGNkMDNhNmYzYzY4NDA2ZTQ1ZTkzYjNjYWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDI3NDQwNTEsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMjc4NDY4ODc4NjAxNzQ3NTI1MCIsImVtYWlsIjoic2FzZW5kZXIxMjNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJDaGlsa3VyaSBTYXNlbmRlciBSZWRkeSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHamdjNVQzM1JsWW1ZZ2dhR1lNQkZsaUJDc2RfX1drYUFTU1hKWmVWQT1zOTYtYyIsImdpdmVuX25hbWUiOiJDaGlsa3VyaSBTYXNlbmRlciIsImZhbWlseV9uYW1lIjoiUmVkZHkiLCJpYXQiOjE2NDI3NDQzNTEsImV4cCI6MTY0Mjc0Nzk1MSwianRpIjoiMTg3MGIzYzQxYjA4MDk0NGFlMTU5ODRkMDdiZmMzZDdiOTZlZWRhZCJ9.XZSwRysDo9xyZlSkiACG7aMgf6UWtJYtLc-H3rfbSrEiJmB8WvISNHqayZDtjLFMCZ0zmECkb4BXo43GNnHSGRj09o9EY7iWIekEIi0uDqjW9A-FwCe6ej9e0Yy7YUWYW_PmN11ry4t1j7aha4UgzVCvYVnxuktatEW-47Aj6eZhDf0VWUFRTCI81w7F4wnoXkjS3clWWrEzJ_girj5K8isRl3w_HRKw740Sg8Y-LhF_0wAMMjOsK-qI-gulIUlj3Qowtw5br22HR8ilkbMRbgDIX6b8VYiOl8HVRKECSL3QPgq4VZTiQcSmvgUX0yD8jN6ljAW5lU5rj5h5WdcKlw
+
+https://github.com/RekhuGopal/PythonHacks/blob/main/AWSBoto3Hacks/EFK-Stack-On-AWS-EKS/EKF_Commands.json
+------------------------------------------------------------------------------------------
+helm installation:
+https://devopscube.com/install-configure-helm-kubernetes/
+---------------------------------------------------------------------------------------------
+
+
+
+
+aws eks create-cluster \
+   --region us-east-1 \
+   --name eks-cluster \
+   --kubernetes-version 1.21 \
+   --role-arn arn:aws:iam::326413622254:role/demo-cluster \
+   --resources-vpc-config subnetIds=subnet-0a036bf06979f3b15,subnet-0d2683a99fb6624b9,subnet-0122a04eed942d886,subnet-083364fe76c074a89,securityGroupIds=sg-0fb735b3673fdd2d5
+   
+   
+   arn:aws:iam::326413622254:role/eks-cluster 
+   
+   subnet-0a036bf06979f3b15 
+   subnet-0d2683a99fb6624b9
+   subnet-0122a04eed942d886
+   subnet-083364fe76c074a89
+   
+   sg-0fb735b3673fdd2d5
+   
+   arn:aws:iam::326413622254:user/eks
+   
+   arn:aws:iam::326413622254:role/dummy
+   arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy
+   
+   
+   
+   
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+	alb.ingress.kubernetes.io/subnets: subnet-083364fe76c074a89, subnet-0a036bf06979f3b15
+
+
+
+
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+	
+   
+   
+   
+   arn:aws:iam::326413622254:role/demo-cluster
+   
+   aws eks update-kubeconfig \
+    --region us-east-1 \
+    --name eks-cluster \
+    --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>
+   
+   
+   
+   
+   
+   
+   
+   arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+   
+   AKIAUX76ETPXO5KK5X2R
+   rsMnn9s1qIdH2ccFoq9NTztFykdpSJSto//kd+kg
+   
+   
+   aws eks --region us-east-1 update-kubeconfig --name demo
+   
+   
+   
+   
+   
+aws eks create-cluster \
+>    --region us-east-1 \
+>    --name eks-cluster \
+>    --kubernetes-version 1.21 \
+>    --role-arn arn:aws:iam::326413622254:role/demo-cluster \
+>    --resources-vpc-config subnetIds=subnet-0a036bf06979f3b15,subnet-0d2683a99fb6624b9,subnet-0122a04eed942d886,subnet-083364fe76c074a89,securityGroupIds=sg-0fb735b3673fdd2d5
+
+
+arn:aws:iam::326413622254:policy/alb-ingress
+
+
+eksctl create iamserviceaccount \
+    --region us-east-1 \
+    --name alb-ingress-controller \
+    --namespace kube-system \
+    --cluster eks-cluster \
+    --attach-policy-arn arn:aws:iam::326413622254:policy/ALBIngressControllerIAMPolicy \
+    --override-existing-serviceaccounts \
+    --approve
+	
+	
+	
+eksctl create iamserviceaccount \
+       --cluster=attractive-gopher \
+       --namespace=kube-system \
+       --name=alb-ingress-controller \
+       --attach-policy-arn=$PolicyARN \
+       --override-existing-serviceaccounts \
+       --approve
+
+arn:aws:iam::326413622254:policy/ALBIngressControllerIAMPolicy	   
+	
+	
+arn:aws:iam::326413622254:policy/alb-ingress	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+aws iam create-policy \
+    --policy-name alb-ingress \
+    --policy-document https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/iam-policy.json	
+	
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-1 \
+    --cluster eks-cluster \
+    --approve	
+	
+	
+	
+  525  kubectl logs -f $(kubectl get po -n kube-system | egrep -o 'alb-ingress-controller-7b4cdcc5b-m6rvg') -n kube-system
+
+aws iam attach-role-policy \
+  --role-name demo-cluster \
+  --policy-arn arn:aws:iam::326413622254:policy/alb-ingress  
+  
+  
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-083364fe76c074a89, subnet-0a036bf06979f3b15
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+#    alb.ingress.kubernetes.io/healthcheck-path: /usermgmt/health-status
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'   
+  
+  
+arn:aws:iam::326413622254:policy/ALBIngressControllerIAMPolicy
+
+curl -o iam_policy.json  https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json
+aws iam create-policy --policy-name ALBIngressControllerIAMPolicy --policy-document file://iam_policy.json
+
+
+
+
+
+
+
+eksctl create iamserviceaccount \
+      --cluster=eks-cluster \
+      --namespace=kube-system \
+      --name=aws-load-balancer-controller \
+      --attach-policy-arn=arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy \
+      --override-existing-serviceaccounts \
+      --approve
+
+	
+	
+	
+	
+   
+   
+   
+   
+   
+   
+   
+
+eksctl-eks-cluster-addon-iamserviceaccount-k-Role1-189DHRWZAP60K
+
+aws iam attach-role-policy \
+  --role-name eksctl-eks-cluster-addon-iamserviceaccount-k-Role1-189DHRWZAP60K \
+  --policy-arn arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy   
+   
+   
+   
+   
+   
+   
+eksctl delete cluster --name=eks-cluster   
+   
+   
+   
+   
+   
+eksctl create cluster \
+--name test-cluster \
+--version 1.21 \
+--region us-east-1 \
+--nodegroup-name k8s-nodes \
+--node-type t2.micro \
+--nodes 2   

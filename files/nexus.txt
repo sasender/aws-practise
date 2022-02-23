@@ -1,0 +1,33 @@
+useradd -M -d /opt/nexus -s /bin/bash -r nexus
+    2  echo "nexus ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/nexus
+    3  mkdir /opt/nexus
+    4  cd /opt/nexus/
+    5  wget https://sonatype-download.global.ssl.fastly.net/repository/downloads-prod-group/3/nexus-3.29.2-02-unix.tar.gz
+    6  ls -l
+    7  tar -zxf nexus-3.29.2-02-unix.tar.gz
+    8  ls -l
+    9  mv nexus-3.29.2-02 nexus
+   10  rm -rf nexus-3.29.2-02-unix.tar.gz
+   11  ls -l
+   12  chown -R nexus:nexus /opt/nexus
+   13  nano /opt/nexus/bin/nexus.vmoptions
+   14  ls -l
+   15  cd nexus/bin/
+   16  ./nexus start
+   17  netsat -lntp
+   18  netstat -lntp
+   19  ls -l
+   20  vi nexus.vmoptions
+   21  vi nexus.rc
+   22  cd
+   23  sudo -u nexus /opt/nexus/bin/nexus start
+   24  su - nexus
+   25  set-hostname nexus
+   26  sudo -i
+
+cd /opt/nexus/nexus/bin/
+
+
+>>>>.>>>>> ansible-commnds<<<<<<<<<<<<<<<<
+apt install sshpass
+ansible-playbook -i inv todoshop.yml -e ENV=dev -t frontend

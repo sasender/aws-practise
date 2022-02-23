@@ -1,0 +1,31 @@
+kops create cluster --cloud=aws --zones=us-east-1 --name=sasender.xyz --dns-zone=sasender.xyz --dns public
+
+
+kops create cluster --cloud=aws --zones=us-east-1 --networking calico --name=sasender.xyz --dns-zone=sasender.xyz --dns public
+
+kops create cluster --name=sasender.xyz --state=s3://sasender.xyz  --zones=us-east-1a --node-count=2 --node-size=t2.micro --master-size=t2.small --master-volume-size 15 --node-volume-size 20 --dns-zone=sasender.xyz --state=s3://sasender.xyz  --zones=us-east-1a --node-count=2 --node-size=t2.micro --master-size=t2.small --master-volume-size 15 --node-volume-size 20 --dns-zone=sasender.xyz  --yes
+
+
+
+
+
+
+
+
+kops update cluster --name sasender.xyz --yes --state s3://sasender.xyz
+
+kops create secret --name k8s.fosstechnix.info sshpublickey admin -i ~/.ssh/id_rsa.pub
+
+ssh -i ~/.ssh/id_rsa ubuntu@api.sasender.xyz
+
+kops edit ig --name=sasender.xyz master-us-east-1a --state s3://sasender.xyz && kops edit ig --name=sasender.xyz nodes-us-east-1a --state s3://sasender.xyz && kops update cluster --name sasender.xyz --yes --state s3://sasender.xyz
+
+------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+22-02-22
+
+modules in terraform
+kops creation:
+ ole support
+ rt support
+ 

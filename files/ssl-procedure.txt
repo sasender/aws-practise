@@ -1,0 +1,24 @@
+What is an SSL certificate?
+An SSL (Secure Sockets Layer) Certificate , also called a Digital Certificate, 
+creates a secure link between a website and a visitor's browser.
+
+Why it is important to add SSL Certificate?
+
+Using the normal HTTP protocol in your website means that any information entered by your users on your site can be hijacked by hackers. 
+
+subdomian links:
+
+https://youtu.be/KHIiAXcV2zM
+
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
+
+https://www.vultr.com/docs/setup-letsencrypt-on-linux/
+
+
+
+
+
+https://www.interserver.net/tips/kb/create-manage-virtual-hosts-nginx/
+
+kops:
+https://www.fosstechnix.com/setup-kubernetes-on-aws-using-kops/

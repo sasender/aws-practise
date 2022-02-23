@@ -1,0 +1,26 @@
+ssh -i FFTL_Live.pem ubuntu@13.127.32.104
+scp -i FFTL_Live.pem 
+
+mongo mongodb://$[hostlist]/$[database]?authSource=$[authSource] --username $[username]
+
+mongodb://fftluser:wdMW6bSvK7AT@localhost:27017/fftldb
+
+
+
+
+Karthy
+PS :34744842
+
+
+ssh -i "RT-frontend-2.4-Capetown.pem" ubuntu@ec2-13-244-255-143.af-south-1.compute.amazonaws.com
+13.244.255.143
+
+
+594046328443
+manoj_doodleblue
+Man0j@24081997A
+
+prohibit-password
+
+
+

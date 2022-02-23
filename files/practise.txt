@@ -1,0 +1,42 @@
+server {
+    server_name api.ole-solutions.com;
+
+    location / {
+        proxy_pass http://localhost:2380;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+    listen 443 ssl;
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = api.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name api.ole-solutions.com;
+    return 404;
+
+
+}
+
+
+
+arn:aws:iam::326413622254:user/practise
+
+zoCmDkXdNAic+}v
+
+practise
+
+s3:ListAllMyBuckets action
+URlERroR3lDl$^]
+s3-taging

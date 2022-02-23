@@ -1,0 +1,462 @@
+The depends_on argument should be used only as a last resort. When using it, always include a comment explaining why it is being used, to help future maintainers understand the purpose of the additional dependency.
+
+provider "aws" {
+access_key = "AKIAUX76ETPXGFA5BGPE"
+secret_key = "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"
+region = "us-east-1"
+}
+
+resource "aws_instance" "terraform_demo" {
+ami = "ami-0a634ae95e11c6f91"
+instance_type = "t2.micro"
+}
+------------------------------LINKS ------------------------------------------------------
+https://geekflare.com/terraform-for-beginners/
+
+----------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+git clone https://github.com/linuxacademy/content-hashicorp-certified-terraform-associate-foundations.git
+
+ 
+---------------------------------------------------------------------------------------------------------------
+file_name: main.tf
+--------------------------------
+provider "aws" {
+  region = var.region
+}
+resourse "aws_vpc" "thise" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_subnet" "thise" {
+  vpc_id = aws_vpc.thise.id
+  cidr_block = "10.0.1.0/24"
+}
+
+data "aws_ssm_parameter" "this" {
+  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+ 
+}
+
+-------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+file_name: variables.tf
+-----------------------------------
+variable "region" {
+  type = string
+  default = "us-east-1"
+
+}
+--------------------------------------  
+file_name: output.tf
+
+--------------------------------------
+output "subnet_id" {
+  value = aws_subnet.this.id
+  
+}
+
+output " ami_id" {
+  value = data.aws_ssm_parameter.this.value
+}
+
+--------------------------------------------------------
+----------------------------------------------------------
+main.tf in main project foleder  related to vpc 
+
+----------------------------------------------------
+varibale = "main_region" {
+  type = string
+  default = "us-east-1"
+}
+
+provider = "aws" {
+  region = var.main_region
+  
+}
+module "vpc" {
+  source = "./module/vpc"
+  region = var.main_region 
+}
+
+resource "aws_instance" "my-instanse" {
+  ami = module.vpc.ami_id
+  subnet = module.vpc.subnet_id
+  instance_type = "t3.micro"
+}
+
+---------------------------------------------------------------------- 
+
+output.tf 
+------------------------------
+output "  " {
+  description = "Private IP of EC2 instance"
+  value       = aws_instance.my-instance.private_ip
+} 
+
+ami: ami-083602cee93914c0c
+subnet_id: subnet-044e756c77e12d6bd
+
+provider "aws" {
+  region = "us-east-1"
+}
+resource "aws_instance" "vm" {
+  ami           = "ami-083602cee93914c0c"
+  subnet_id     = "subnet-044e756c77e12d6bd"
+  instance_type = "t3.micro"
+  tags = {
+    Name = "my-first-tf-node"
+  }
+}
+
+AKIAWON7WRI2T67UYT53 id
+6QbXCWi++xwKHG8yZOhlmHWniuoUJNcWalLPxiIV secret_key
+
+qk4k2tAre5Bsrg.atlasv1.6Jyy9cMVAT1hqvlZLPywxoUIWoRiTYn52swsrdmeBzgQHnebA2dpZYr2XCuJAwX0eQo
+
+
+git clone https://github.com/hashicorp/tfc-getting-started.git
+   $ cd tfc-getting-started
+   $ scripts/setup.sh
+   
+ami-083602cee93914c0  ami-083602cee93914c0c
+subnet-09dc504ccad25dc68
+   
+
+============================================================aws-infrastructure management==============================================
+===========================================================                              ==============================================
+AWS AUTHENTICATION:
+we need to install aws cli in our terminal 
+aws configure the acces key id and secret_key to configure our aws account in our terraform cli 
+
+[ BUILD OUR INFRASTRUCUTURE IN AWS ]{
+  intilising working directory by using terraform init
+    but we must maintain the main.tf file in our working directory 
+	   and do check the our format is correct or not using terraform fmt
+	   then terraform validate
+	   next terraform apply 
+	   inspecting state working or not :
+	      [terraform show  its shows the our  aws instance configuration]
+          [showing list of state in terraformby using : terraform state list]
+}
+
+=====================================================================================================================================
+MAKING CHANGES OUR INFRASTRUCTUIRE AND HOW TO DESTORYING OUR INFRASTRUCTURE IN AWS {
+    after we made changes in our main.tf file 
+       next we are excuting terraform plan it show the additions and deletion in the code 
+           after we excuting terraform apply 
+			 first it will destorying old and creating new infrastructure which are we given i  main.tf 
+			     [then we apply the terraform show ] it shows the all regarding out for the latest creatin infrastructure 
+				    terraform destroy it has destorying all infrastructure which are created throgh terraform
+}
+
+============================================================================================================================================
+=============================[ variables replacing instansing name ================================================================
+{{
+   in these variables 
+      we must create one file under the name is var.tf 
+          import the data like variable "instance_name" {
+  description = "Value of the Name tag for the EC2 instance"
+  type        = string
+  default     = "ExampleAppServerInstance"
+}
+
+           next edit the main.tf file with var.instance_name
+then terraform apply 
+     terraform show 
+     terraform apply -var "instance_name=batman"  thise command will create the instance under the name of batman 
+     main.tf file::
+{==========================================================main.tf file=======================================================
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+
+  required_version = ">= 0.14.9"
+}
+
+provider "aws" {
+  profile = "default"
+  region  = "us-east-1"
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-09e67e426f25ce0d7"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+
+
+=========================================================================closing main.tf fie===============================================}
+
+
+======================{===USING OUT VARIABLES USING QUERING DATA------===========================================================
+while we working with our team mates and suddenly we want to insance image id and public ip we are not waiting so muh time untill login our aws account 
+    in the insted of while we creating the terraform infrasructure along with we are created one output vatriables format  it will helps to the given out puts whicg u want 
+here is the some sample exaple of out varibles :
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value       = aws_instance.app_server.id
+}
+
+output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.app_server.public_ip
+}
+===============================================================================================================================
+
+main.tf :
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+
+  required_version = ">= 0.14.9"
+}
+
+provider "aws" {
+  profile = "default"
+  region  = "us-east-1"
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-09e67e426f25ce0d7"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+
+==========================================================================================================================================
+
+=============================SOTING REMOTE STATE------------------=====================================================================
+  	
+
+		   
+					   
+       		  
+	      
+
+
+
+
+
+
+
+================================================================================================================
+creating ec2 instance and public subnets and private subnets and creating route tabels to public ip :
+
+https://github.com/arvindr73/TF-TASK3/blob/master/vpc-pub-pvt-arch.tf
+
+===============================================================================================================
+CREATING S3 BUCKET BY USING TERRAFORM SCRIPT:
+----------------------------------------------------
+   https://www.bacancytechnology.com/blog/aws-s3-bucket-using-terraform
+     
+	 https://linuxhint.com/terraform-create-s3-bucket/
+	    
+
+
+
+s3 creating access :
+AKIAUX76ETPXDQURFUWA id
+DDg4uQ7zUfpXFVoZIx3QqWgLoikNvsr2awvHNKO8  access_key
+=o{9q8UlZg)^&7O   password
+
+AKIAUX76ETPXDQURFUWA
+
+
+
+
+
+provisoners lab
+ssh -i "~/.ssh/id_rsa.pub" <PUBLIC IP>
+
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
+
+AWS Config
+variable "aws_access_key" {
+default = "AKIAUX76ETPXDQURFUWA"
+}
+variable "aws_secret_key" {
+default = "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"
+}
+variable "aws_region" {
+default = "us-east-1"
+}
+
+
+
+
+resource "aws_s3_bucket" "onebucket" {
+   bucket = "testing-s3-with-terraform"
+   acl = "private"
+   versioning {
+      enabled = true
+   }
+   tags = {
+     Name = "Bucket1"
+     Environment = "Test"
+   }
+}
+
+===========
+USING TERRAFORM CREATING AZURE INFRASTRUCTURE :
+=============================================
+using terraform create the kubenrnets infrastructure :
+=====================================================
+
+
+
+   
+
+What Is a Terraform Module?
+
+A Terraform module is a collection of standard configuration files in a dedicated directory
+
+================+++++++++++==========+++++++++++==============+++++++++++++++===========+++++++++++++++++++
+
+1) config canbe split in multiple files 
+2)[disadvantages]
+   bugs fixing 
+   
+terraform files:
+ main.tf or 
+ variabels.tf  <<<<<----->>>> terraform.tfvars
+ 
+ alternative name for terraform.tfvars  ----->>>> terraform plan --var-file terraform.tfvars
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+rds deploy with use of terraform:
+  git clone https://github.com/devbhusal/terraform-ec2-RDS-wordpress.git
+  
+  
+  
+=====================+++++++++++++++===========+++++++++++++++++++================+++++++++++++++++++++
+
+[13-02-22
+  terraform is the platform agnostics and platform independent 
+
+
+AKIAUX76ETPXDQURFUWA
+
+DDg4uQ7zUfpXFVoZIx3QqWgLoikNvsr2awvHNKO8s
+
+172.31.95.0/20
+172.31.99.0/20  
+172.31.80.0/20
+172.31.96.0/20
+
+
+===================>>>>>>>>>>>>>>>>>>><<<<<<<,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<<<<<<<<<<<<,,,,
+18-02-22
+
+Terraform stores the state of our infrastructure in a file called “terraform.tfstate”. When we provision our infrastructure with terraform, this terraform.tfstate state file will be created in the local workspace.
+
+
+:
+[[ terraform modules :
+Module: 
+one of set of separate parts of the structure or programe 
+ex:
+one of a set of separate parts which, when combined, form a complete whole
+
+https://www.freecodecamp.org/news/terraform-modules-explained/   :::::modules examples and links
+
+
+terraform:
+module has been clasified by >1) main.tf  2) variables.tf  3) outputs.tf 
+  [ 
+  
+  https://adamtheautomator.com/terraform-module-example/
+  
+  
+  
+module – A module is a container for multiple resources that are used together.
+
+sudo terraform state list:
+
+---------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+links:
+
+https://github.com/programster/tutorial-terraform-examples/blob/main/autoscaling-ec2-group-with-http-load-balancer/load-balancer.tf
+
+https://github.com/Elyas09/terraform-projects
+
+
+https://github.com/kevholditch/terraform-beginner-to-master-examples
+
+https://github.com/futurice/terraform-examples
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<;:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+   
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

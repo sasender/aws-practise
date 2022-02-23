@@ -1,0 +1,20 @@
+https://abodeqa.com/aws-cli-commands-create-s3-bucket-command/ --- s3 buckets creating from cmd line face 
+sudo aws s3 ls
+     sudo aws s3 mv s3://sasender.xyz s3://jhon-01 --recursive
+     sudo aws s3 rb --force s3://sasender.xyz
+     sudo aws s3 mb s3://practise
+     sudo aws s3 mb s3://practise-02
+     aws s3 ls
+     sudo aws s3 ls
+     sudo aws s3 rb --force s3://sasender.xyz
+     sudo aws s3 rb --force s3://sasender.xyz
+     sudo aws s3 rb --force s3://sasender.xyz
+     sudo aws s3 rb --force s3://practise-02
+
+
+
+aws s3api put-bucket-versioning --bucket sasender.xyz --versioning-configuration Status=Enabled
+
+kops create cluster --cloud=aws --zones=ap-south-1a --networking calico --name=k8s.fosstechnix.info --dns-zone=k8s.fosstechnix.info --dns public
+
+https://piotrminkowski.com/2020/11/10/continuous-integration-with-jenkins-on-kubernetes/

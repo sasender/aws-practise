@@ -1,0 +1,69 @@
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+wget https://bucket-name.s3.region-identifier.amazonaws.com/latest/install
+
+[ https://www.tutorialworks.com/jenkins-shared-library/
+
+https://thedatalife.com/using-aws-codedeploy-to-auto-deploy-code-to-ec2
+
+https://medium.com/@ricardo_fideles/how-to-deploy-a-nodejs-app-with-jenkins-ci-cd-at-digital-ocean-bb44ddd7de2d
+
+----------------------------------------------------------------------------
+https://dev.to/appwrk/deploy-reactjs-and-nodejs-app-on-server-with-jenkins-ol ]
+
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+Amazon my sqll data trigiirng logs : 
+
+https://aws.amazon.com/blogs/database/monitor-errors-in-amazon-aurora-mysql-and-amazon-rds-for-mysql-using-amazon-cloudwatch-and-send-notifications-using-amazon-sns/
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+Lamda links
+https://www.howtoforge.com/aws-lambda-function-to-start-and-stop-ec2-instance/
+
+--------------------------------------------------------------------------------------------------------------------------------------
+aws rds  data-base :
+https://aws.amazon.com/premiumsupport/knowledge-center/rds-mysql-logs/#:~:text=Open%20the%20Amazon%20RDS%20console%2C%20and%20then%20choose%20Databases%20from,Choose%20Continue.
+----------------------------------------------------------------------------------------------------------------------------------------
+
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-node-group-private-network/
+
+
+------------------------------------------------------------------------------------------------------------------
+https://www.studytonight.com/post/efk-stack-setup-elasticsearch-fluentbit-and-kibana-for-kubernetes-log-management
+
+------------------------------------------------------------------------------------------------------------------
+===============links-===================== FOR FREE SSL CERTIFICATE--==================================
+
+https://technicalwall.com/blogging/free-ssl-certificate/ 
+
+docker rm $(docker ps -a -q)
+docker stop $(docker ps -a -q)
+docker kill $(docker ps -q)
+
+
+
+===========================================================--ASSIGN PUBLIC IP TO OUR DOMAIN ----=======================
+http://www.littlebigextra.com/map-domain-name-amazon-aws-ec2-instance/
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+=======+++++++++==========+++++++==============+++++++++++++++==============++++++++++++++++==================++++++++++
+
+https://docs.google.com/spreadsheets/d/1gynaNqXS40tVVQ01wWU1ubQQKjxCD2V1lFXQYoFIuLg/edit#gid=551801386
+
+
+https://docs.google.com/spreadsheets/d/15DfohxCejEG7cWr7IZfMGUCCiqOX6G3WzehMl1Bqdsc/edit#gid=662404252
+
+
+mysql:
+
+  https://www.fastwebhost.in/blog/how-to-backup-mysql-databases-via-command-line/
+   
+   
+   14-02-2022:
+   -----------
+   
+
+   

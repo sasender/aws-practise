@@ -1,0 +1,112 @@
+wage install monster pen border chunk conduct garden skin caught size fluid
+
+0xB1c41a81c473de891aa4b4cE052a03C9b2Ba4C2a
+
+https://awesomeopensource.com/projects/terraform
+
+
+
+https://aku.dev/create_aws_ec2_instance_with_terraform/
+
+
+==========+++++++++===========++++++==========+++++++++==========
+
+security breach:
+First thing is to block inbound and outbound public connections to the reported host. 
+You can use Security Group of the host for this.
+There would definitely be downtime of this host, so please know the repercussions
+
+https://vprasanna.medium.com/responding-to-aws-abuse-alerts-ccf63018543
+
+https://aws.amazon.com/blogs/mt/automating-processes-for-handling-and-remediating-aws-abuse-alerts/
+
+https://youtu.be/GcA6d8fpLWU
+
+
+=========++++++++++++==============+++++++++++=============+++++++++++
+
+https://youtu.be/7MbMQ5GGUEMhttps://youtu.be/7MbMQ5GGUEM
+
+
+https://stackoverflow.com/questions/31867803/mandatory-tagging-when-launching-ec2-instance
+
+
+============+++++++++++===============+++++++++++++========================
+https://techblog.geekyants.com/using-aws-lambda-functions-with-docker-containers-a-tutorial
+
+=======++++++++++=========++++++++++++===========+++++++++++=========++++++++++++++=++++++++++
+14-02-22 {
+	OLE	 Elastic changes in GB production and mapping updated elastic ip in dns
+    Sasha	Server support
+	Skinnela	Staging setup
+
+
+
+15-02-22 {
+     manual configuration errors such as network settings modifications
+	 https://www.site24x7.com/help/azure/
+	 https://stackoverflow.com/questions/11703320/aws-ec2-high-cpu-alarms-going-off
+	 A general rule of thumb - if steal time is greater than 10% for 20 minutes, the VM is likely in a state that it is running slower than it should.
+	 
+	 https://scoutapm.com/blog/understanding-cpu-steal-time-when-should-you-be-worried
+	 
+16-02-22 {
+        sasha server support
+        ole gb-prod elastic ip has not finished 
+        skinnela: server stage is done 
+
+-------------->>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<21-02-22>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+{21-02-22}
+
+{ Sasol	--  Live push setup support & Password recovery.
+  Bakers --  dozen	backend staging server }
+
+sasender.r@dashtechinc.com
+
+{GB Production SVGs to be taken from Operations S3. Current being taken from unknown location (https://api.ole-solutions.com/public/uploads/master_config_images/Round.svg)
+  
+  
+  localImagePath: /public/upload/images/
+  
+  
+ ............................................................................................................................. 
+ chanti account:
+  
+  AKIARIKEHLBNEZPFHS74 key
+  RoNdZP/J8SGJWyI4P42gO8rJZDv2Ipp9w5xA48aX   id 
+...................................................................................................................................
+
+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  github token
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+sasender.xyz
+sasender account:
+AKIAUSJDQWCRPIU6ZQ62
+9GoJxhkn5joaMB4JgEt4VdfnB1Rwmisv0N6nVvi2
+ 
+ ....................................................................................................
+
+AKIAUSJDQWCRBNHNJBM3 id
+t6AmFANF1q8y3goPM7ykDw5q1UQ5MX0RrxNIdlxD  id 
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+kops edit ig --name=sasender.xyz master-us-east-1a --state s3://sasender.xyz
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+ 
+	 
+
+
+
+
+
+
+
+
+
+
+
+

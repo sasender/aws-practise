@@ -1,0 +1,28 @@
+https://devopscube.com/setup-efk-stack-on-kubernetes/   ------  efk downloading guide from scarch 
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+volumeClaimTemplates:
+  - metadata:
+      name: elasticsearch-data-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "standard"
+      resources:
+        requests:
+          storage: 10Gi
+		  
+		  
+		  
+helm install --set nfs.server=3.87.60.35 --set nfs.path=/mnt/k8sMount nfs-client-provisioner/
+$ helm install --set nfs.server=3.87.60.35 --set nfs.path=/mnt/k8sMount nfs-client-provisioner
+
+
+helm show values elastic/elasticsearch >> elasticsearch.values 
+
+helm install elasticsearch elastic/elasticsearch -f elasticsearch.values -n efk
+helm show values elastic/kibana >> kibana.values
+helm install kibana elastic/kibana -f kibana.values -n efk
+helm install filebeat elastic/filebeat -n efk 
+	  
+		  

@@ -1,0 +1,147 @@
+-----
+---------------->>>>>>MY-SQL FROMULAS DUMP AND BACKUP AND CONNECTING FROM RDS TO OUR LOCAL INSTANSES<<<<<<<<<<<<---------
+connecting to the local server from rds mysql :
+---->>>>--------+++>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  mysql -h [paste the rds url rds.amazonaws.com] -P 3306 -u admin -p
+  -u mention user name 
+  
+  dump from rds to our local server through the backup:
+  --------=====++++++=========+++++++=================== 
+   mysqldump -h sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com -u admin -p sasha > backup_my_database_11-feb.sql
+   
+   
+   
+   
+   mysqldump -h [paste the rds url rds.amazonaws.com] -u admin -p [sasha] > backup_my_database_11-feb.sql
+   
+   sasha--- thise is the file i want to trying take backup
+   
+   
+   
+---------++++++++>>>>>>>>>====================  
+
+how to conncet the mysql server in local :
+  
+  
+  
+how to take a dump from my sql server to my local insatnces:
+
+  mysqldump -u root -p  sasha > sasha_dump.sql
+  
+  
+  restoring 
+  mysql --one-database sampledb  <  all_databases.sql
+  
+  
+  
+links:
+https://www.fastwebhost.in/blog/how-to-backup-mysql-databases-via-command-line/  
+
+
+
+========>>>>>>>>>>>>>>>>>>>>>>>>>>MONGODB<<<<<<<==============
+connecting to through commnd line :
+mongo connecting:
+   mongo --host [paste the url of doccument-db which is provided by aws:27017] --username [sasender] --password [paste the password]
+   ex:
+   mongo --host ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password OlEpRoDuTiOn\$2021
+
+==========++++++++++++===========>>>>>>>>>////////??????????//////////////////////////////////////////////////////////////=======================
+mongodump from documentdb:
+
+mongodump:
+   sudo mongodump --host="ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017" --authenticationDatabase=ole_cms -o ole_cms_bkp_16_02_22 --username=oleprodnv --password='OlEpRoDuTiOn$2021'
+  
+   sudo mongodump --host=["url of.us-east-1.docdb.amazonaws.com:27017"] --authenticationDatabase=[database-name] -o [backup-filename] --username=[provide-username] --password='pRoDuTiOn$2021'  
+
+
+
+
+=========++++++===========++++++++++++++===============+++++++++++++++=============++++++++++++++++++++++++++++================================
+
+examples:
+
+
+mongodb://oleprodnv:OlEpRoDuTiOn$2021@ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017/ole_cms
+
+
+
+mongo --host ole-creator-cms.ccnzm4mtfue7.ap-south-1.docdb.amazonaws.com:27017 --username ole --password
+
+
+mongodb://ole:X6gfuMWfazgPL8@ole-creator-cms.ccnzm4mtfue7.ap-south-1.docdb.amazonaws.com:27017/ole_cms_only
+
+
+mongodb://oleprodnv:OlEpRoDuTiOn$2021@ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017/ole_cms
+
+
+ole_cms
+
+
+mongo --host ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password <insertYourPassword>
+
+
+
+
+
+mongodump --host="ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017" \
+    --db=ole_cms \
+    --out=ole_cms_bkp \
+	--numParallelCollections 1 \
+    --username=oleprodnv \
+    --password=OlEpRoDuTiOn$2021 
+
+sudo mongodump --host="ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017" --db=ole_cms -o ole_cms_bkp_11_02_22 --username=oleprodnv --password=OlEpRoDuTiOn$2021
+
+api.ole-solutions.com
+
+creatorgb.ole-solutions.com
+
+
+
+db.admins.count() 3
+db.authtokens.count() 6
+db.categories.count() 259
+db.images.count() 0
+db.importexcels.count()1
+db.pages.count()5
+db.permissions.count() 17
+db.products.count() 180
+db.retailercategories.count() 0
+db.roles.count() 4
+db.transactions.count() 26613
+
+
+rs0:PRIMARY> db.admins.count()
+3
+rs0:PRIMARY> db.authtokens.count()
+6
+rs0:PRIMARY> db.categories.count()
+259
+rs0:PRIMARY> db.images.count()
+0
+rs0:PRIMARY> db.importexcels.count()
+1
+rs0:PRIMARY> db.pages.count()
+5
+rs0:PRIMARY> db.permissions.count()
+17
+rs0:PRIMARY> db.products.count()
+180
+rs0:PRIMARY> db.retailercategories.count()
+0
+rs0:PRIMARY> db.roles.count()
+4
+rs0:PRIMARY> db.transactions.count()
+25202
+
+
+
+
+
+
+
+
+
+

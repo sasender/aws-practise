@@ -1,0 +1,113 @@
+------------------------------------
+credentilaes for ole opertions:
+operations@ole-solutions.com
+Oleserver99*
+
+------------------------------------
+credentilaes for mrachith
+mrachit@hotmail.com
+Mahlife9!
+54.166.115.139
+ssh -i "ole-nvirginia-prod.pem" ubuntu@ec2-54-166-115-139.compute-1.amazonaws.com
+scp -i  "ole-prod.pem" "build (7).zip" ubuntu@65.1.97.40:/home/ubuntu
+ssh -i  ole-prod.pem ubuntu@65.1.97.40
+ssh -i "ole production.pem" ubuntu@3.108.178.119
+
+======+++++++++++=============++++++++++++++++++=============+++++++++++++++++++++++++===============
+google sheet works:
+====+++++++============+++++++++++++++++++++++++++++++++++=================++++++++++++++
+https://docs.google.com/spreadsheets/d/15DfohxCejEG7cWr7IZfMGUCCiqOX6G3WzehMl1Bqdsc/edit#gid=662404252 -infrastructure
+
+
+https://docs.google.com/spreadsheets/d/1gynaNqXS40tVVQ01wWU1ubQQKjxCD2V1lFXQYoFIuLg/edit#gid=551801386 -task list
+
+
+
+===========+++++++++++++++===============MONGODB ATLAS+++++++++++++=========++++++++++++++
+mongo db:
+
+mongodb+srv://ole:zVrNmc7yIZwG@cluster-oleoperations.xdgeo.mongodb.net/ole_db?retryWrites=true&w=majority
+
+mongodb+srv://ole:zVrNmc7yIZwG@cluster-oleoperations.xdgeo.mongodb.net/ole_bevills?retryWrites=true&w=majority
+
+mongo db :mrachith
+mongodb+srv://ole:zVrNmc7yIZwG@mrachit-cluster.7av7a.mongodb.net/ole_db?retryWrites=true&w=majority
+
+mongodb+srv://ole:zVrNmc7yIZwG@mrachit-cluster.7av7a.mongodb.net/ole_salescreator?retryWrites=true&w=majority
+
+
+
+mongodb+srv://ole:zVrNmc7yIZwG@mrachit-cluster.7av7a.mongodb.net/corporate_site?retryWrites=true&w=majority
+--------------------------------------
+
+mysql -h my-sql.c6pesqcef4en.us-east-1.rds.amazonaws.com -P 3306 -u sasender -p	
+
+
+mongodb://ole:nV7rQXwkaed8Nq@ole-prod.cluster-cro3aalqhmkt.ap-south-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false	
+
+
+
+mongo --host ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password OlEpRoDuTiOn$2021
+
+============+++++++++++++++++=================++++++++++++++++++++++======================++++++++++++
+
+douts clarity section:
+1) Review EC2 usage of GB prod and bring down size/costing if needed
+i-061ddab2ca4c23e69
+
+zVrNmc7yIZwG --password for mongodb 
+ole  ----- username for mongodb
+
+----------------------------------------------------------------------------
+t3a.medium	$0.0376*720= $27.072
+t3a.large	$0.0752*720= $54.144
+
+
+
+mongodb+srv://ole:zVrNmc7yIZwG@cluster-oleoperations.xdgeo.mongodb.net/ole_db?retryWrites=true&w=majority
+
+listen 443 ssl;
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/olecreator2;
+	
+	
+	
+olecreator2	
+  olecorporatesite need api 
+
+
+ole-ebs-volume:
+
+========+++++++++===========++++++++++===============++++++++++++++++
+
+pm2 satrt document
+
+https://www.section.io/engineering-education/pm2-with-nodejs/
+
+
+
+=========+++++++==========+++++++++++========+++++++++++=======+++++++++
+
+ole-gb-staging:
+ $15.08  october
+ $4.56 in november 
+ $18.45 in december
+ $6.09 in january
+ total = $44.18
+
+=======++++++++==============+++++++++++==============++++++++++++===========
+
+						=====================
+						|gb-staging instance|
+						======================
+in mumbai region:       |- beviles stagging
+					    |- bevilles-backend 2381
+						
+					 |- gb -staging repositories
+					    | ole_creator_page 2384
+						| ole_cms_backend  2380
+				
+
+
+
+

@@ -1,0 +1,21 @@
+==========+++++++++++++++===========+++++++++++++++++
+LINKS: {
+  https://raw.githubusercontent.com/linuxacademy/content-terraform-2021/main/kubernetes_eks.tf
+  
+  nginx.tf file:
+  
+    https://raw.githubusercontent.com/linuxacademy/content-terraform-2021/main/resource_nginx.tf
+	
+  service.nginx.tf file:
+  
+    https://raw.githubusercontent.com/linuxacademy/content-terraform-2021/main/service_eks_nginx.tf  
+	
+  terraform.out.tf:
+    
+    https://raw.githubusercontent.com/linuxacademy/content-terraform-2021/main/outputs_eks.tf	
+	
+	
+==============+++++++++++++++++++==========+++++++++++=========++++++++++++++++++++++++====================
+
+
+	

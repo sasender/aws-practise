@@ -1,0 +1,196 @@
+sudo rm -rf generated/
+php bin/magento cache:flush
+php bin/magento setup:static-content:deploy -f
+sudo chmod -R 0777 var/* generated/* pub/static/*
+php bin/magento indexer:reindex
+
+
+
+
+
+sudo chmod -R 0777 pub/static var/ generated/
+php bin/magento s:s:d -f
+php bin/magento c:f
+sudo chmod -R 0777 pub/static var/ generated/
+
+
+============++++++++++===============+++++++++++++===============+++++++++++++==========++++++++++++++
+
+The Linux ‘tar’ stands for tape archive, is used to create Archive and extract the Archive files
+
+
+What is an Archive file? 
+An Archive file is a file that is composed of one or more files along with metadata.
+Archive files are used to collect multiple data files together into a single file for easier portability and storage,
+or simply to compress files to use less storage space.
+
+refernse link: https://phoenixnap.com/kb/tar-command-in-linux
+tar czf files.tar.gz [directory or file name ]
+tar -zxvf files.tar.gz
+tar tvf kin.tar.gz | grep -i kin
+========+++++++++++==============++++++++++++=====================+++++++++++++++++
+
+
+===========++++++++++============+++++++++++
+BASE -64
+echo -n 'my-string' | base64
+echo -n 'bXktc3RyaW5n' | base64 --decode
+
+===============+++++++=============++++++++++===========+++++++++++++++==============++++++++++++++++============++++++++++++++++=+++++++++++
+
+
+How to zip the files & move the files from one server to another to server:
+
+   deploy the code from dev to producrtion
+      zip the directorys which u want deploy in production
+         sudo zip -r producrtion.zip code/ design/   ---- copy the folders 
+
+scp:
+scp producrtion.zip sasha@3.108.106.174:/var/www/html/app
+
+   backup the old folder : in production server
+
+     sudo zip -r backup-31.zip code/ design/
+
+       unzip producrtion.zip in the production server
+
+
+zip command:
+sudo zip -r producrtion.zip code/ design/
+
+
+===============++++++++++++++++=====================================+++++++++++++=========+++++++++++++++++++++++++===================
+ 
+scp -i "project.pem" ubuntu@ec2-107-22-87-19.compute-1.amazonaws.com:/root/terraform.zip /Desktop 
+
+scp -i "ole-prod.pem" ubuntu@ec2-65-1-97-40.ap-south-1.compute.amazonaws.com:/var/www/html/OLE/ole-creator-canvas/backup-31.zip .
+
+
+upload the files from local machine to remote ec2 machines:
+---------------------________-------------------------------
+scp -i [folde name] user@pubip:/path/destination
+ex:
+scp -i file.txt user@21.52.235.52:/home/ubuntu
+
+scp -i  "pem-file" "file" ubuntu@65.1.97.40:/home/ubuntu
+scp -i  "ole-prod.pem" "build (7).zip" ubuntu@65.1.97.40:/home/ubuntu
+
+
+download from ec2 to our local machine:
+++++++++++++============+++++++========
+
+excute our local terminal :
+  scp -i "project.pem" ubuntu@ec2-107-22-87-19.compute-1.amazonaws.com:/root/terraform.zip /Desktop or . represents the present directory 
+  scp -i "sasha_dev.pem" ubuntu@ec2-3-109-76-32.ap-south-1.compute.amazonaws.com:/home/ubuntu/sasha_dump.sql.
+  
+  refernse link:https://www.youtube.com/watch?v=WJedLxG-kNI
+  
+
+=============================+++++++++++++++++================++++++++++++++=================+++++++++++++++++++++++++++++++++++++
+
+pm2 start app.js --name "ole-creator_page"
+
+================NOTES:
+
+node_fftl_frontend
+
+
+
+pm2 start 
+
+==============++++++++++++++++mysql dump:=================+++++++++++++++++++++++
+mysql dump from our local server :
+mysqldump -u root -p  sasha > sasha_dump.sql
+
+MYSQL DUMP FROM RDS SERVER:
+mysqldump -h rds_instance_endpoint.rds.amazonaws.com -u root -p --triggers --routines --events dbname > dbname_dump.sql
+
+REFERNSE LINKS:
+https://aws.plainenglish.io/aws-rds-how-to-smoothly-dump-and-restore-dbs-with-mysqldump-e55513c429d5 
+
+
+
+==========+++++++++++++=================++++++++++++================+++++++++++++==============
+--------------------------------------------------------------------------------------------------
+
+instance trouble shooting:
+
+
+https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-resolve-ssh-connection-errors/
+
+
+https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/
+
+
++++++++++=================+++++++++++++++==============++++++++++++===============+++++++++++++++
+--------------------------------------------------------------------------------------------------------
+ linux users creating with limited period of time :
+   sudo chage -M 90 -W 30 -E 2020-06-07 username  {we can change the existing user permissions}
+   
+   sudo chage -l username [thise commnd is shows the user permissions and expiery dates ]
+   
+   useradd -e 2022-02-17 jhon
+   
+   
+   
+   links:
+   https://www.cyberithub.com/passwd-and-chage-examples/#:~:text=User%20Password%20Expiration%20Warning%20In%20case%20you%20want,password%20is%20going%20to%20expire%20after%2015%20days.
+   
+   
+   https://ostechnix.com/how-to-limit-users-access-to-the-linux-system/
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usermod -s /bin/bash $USERNAME
+
+
+
+
+
+pm2 start app.js --name "ole-creator_page"
+
+
+
+
+
+
+
+===========+++++++++++============++++++++++++============+=+++++++++++++++++=======
+
+how to resctrict the launching insatnces with out tags:
+
+https://aws.amazon.com/premiumsupport/knowledge-center/iam-policy-tags-restrict/
+
+======+++++++=========+++++++++============+++++++++=========+++++++++++++++++========+++
+
+ https://cloudkatha.com/is-s3-region-specific-or-global-what-do-you-think/
+ 
+ 
+ ======++++++==========++++++++++=============+++++++++++++++++===========================
+ 
+linux: stress related commnds :
+     https://lindevs.com/install-stress-command-on-ubuntu/
+	 
+	 
+	 user changes sh to bash:
+	 usermod -s /bin/bash $USERNAME
+	 sudo -u $USERNAME chsh -s /bin/bash   in sudo 
+	 
+	 

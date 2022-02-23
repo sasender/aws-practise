@@ -1,0 +1,109 @@
+Root Cause anaylsis:
+unknow script run by the user 
+in that cuause cpu had been  goes to stealen stage
+ 
+arn:aws:s3:::bevilles.files2021
+
+
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2609X2.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2952X5.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2952X4.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2609X5.glb
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR0619X4.glb
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR0619X5.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR0619X2.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0589X2.glb
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0589X1.glb
+
+sep
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2951X5.glb
+
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW2951X2.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW2951X1.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2951X4.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2951X3.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGR2951X2.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0627X1.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0625X1.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0623X1.glb
+https://s3.ap-south-1.amazonaws.com/bevilles.files/LGW0619X2.glb
+
+
+
+-------------------------------------------------------------
+1) oil-and gas customer 250 networks 
+they want to go to data migration from onprimises to cloud migrate 
+   scalability more important:
+    
+	azure migration:
+	architexture is more importent 
+	2021 on promise version
+	
+
+----------------------==============+++++++++++++>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<
+The cloud provides efficient, cost-effective, and easy-to-implement and use solutions with the freedom of scalability.
+The cloud drives higher productivity at lower costs, and this is the very reason so many companies have at least one cloud application in their arsenal
+that brings us to cloud data migration, which can also improve productivity and security
+Downtime
+       :
+	   Network or service outages can be disastrous. If an organization is migrating from one cloud to another,
+	   Downtime is one of the most crucial and commonly faced issues during cloud migration. One possible solution to this is to set up a backup environment or allocate resources to run the applications till the migration is complete.
+
+
+>> The Standard pricing tier, which offers 1-, 2-, and 4-vCore options, is generally available and free to customers.
+>> south-east-asia region:
+>>>>>> 4vcores 	$0.426/hour
+
+	   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

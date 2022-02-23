@@ -1,0 +1,141 @@
+server {
+    server_name stagingbevilesbe.ole-solutions.com;
+
+    location / {
+        proxy_pass http://localhost:2381;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+
+    listen 443 ssl;
+
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = stagingbevilesbe.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name stagingbevilesbe.ole-solutions.com;
+    return 404;
+
+
+}
+
+server {
+    server_name stagingbevilesfe.ole-solutions.com;
+
+    location / {
+        proxy_pass http://localhost:2001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+
+    listen 443 ssl;
+
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = stagingbevilesfe.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name stagingbevilesfe.ole-solutions.com;
+    return 404;
+
+
+}
+server {
+    server_name stagingbevilesfe.ole-solutions.com;
+
+    location / {
+        proxy_pass http://localhost:2384;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+
+    listen 443 ssl;
+
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = staginggbfe.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name staginggbfe.ole-solutions.com;
+    return 404;
+
+
+}
+
+server {
+    server_name staginggbbe.ole-solutions.com;
+
+    location / {
+        proxy_pass http://localhost:2380;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+
+    listen 443 ssl;
+
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = staginggbbe.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name staginggbbe.ole-solutions.com;
+    return 404;
+
+
+}
+
+staging.beviles.be.ole-solutions.com   
+staging.beviles.fe.ole-solutions.com   
+staging.gb.be.ole-solutions.com
+staging.gb.fe.ole-solutions.com
+
+
+
+
+bundle_3.crt
+ole-solutions.key2
