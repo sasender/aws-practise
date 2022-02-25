@@ -18,11 +18,3 @@ aws s3api put-bucket-versioning --bucket sasender.xyz --versioning-configuration
 kops create cluster --cloud=aws --zones=ap-south-1a --networking calico --name=k8s.fosstechnix.info --dns-zone=k8s.fosstechnix.info --dns public
 
 https://piotrminkowski.com/2020/11/10/continuous-integration-with-jenkins-on-kubernetes/
-
-
-aws s3 cp s3://practise-02 s3://cheguveera --recursive
-
-
-aws s3 sync s3://cheguveera buckets/
-
-https://martinbuberl.com/blog/backup-amazon-s3-bucket-with-aws-cli/

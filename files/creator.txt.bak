@@ -1,0 +1,128 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:UpdateAutoScalingGroup",
+                "ec2:AttachVolume",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateRoute",
+                "ec2:CreateSecurityGroup",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:DeleteRoute",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DeleteVolume",
+                "ec2:DescribeInstances",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeVolumesModifications",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeDhcpOptions",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DetachVolume",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:ModifyVolume",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:DescribeAccountAttributes",
+                "ec2:DescribeAddresses",
+                "ec2:DescribeInternetGateways",
+                "elasticloadbalancing:AddTags",
+                "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer",
+                "elasticloadbalancing:AttachLoadBalancerToSubnets",
+                "elasticloadbalancing:ConfigureHealthCheck",
+                "elasticloadbalancing:CreateListener",
+                "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:CreateLoadBalancerListeners",
+                "elasticloadbalancing:CreateLoadBalancerPolicy",
+                "elasticloadbalancing:CreateTargetGroup",
+                "elasticloadbalancing:DeleteListener",
+                "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DeleteLoadBalancerListeners",
+                "elasticloadbalancing:DeleteTargetGroup",
+                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                "elasticloadbalancing:DeregisterTargets",
+                "elasticloadbalancing:DescribeListeners",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeLoadBalancerPolicies",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTargetGroupAttributes",
+                "elasticloadbalancing:DescribeTargetGroups",
+                "elasticloadbalancing:DescribeTargetHealth",
+                "elasticloadbalancing:DetachLoadBalancerFromSubnets",
+                "elasticloadbalancing:ModifyListener",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:ModifyTargetGroup",
+                "elasticloadbalancing:ModifyTargetGroupAttributes",
+                "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+                "elasticloadbalancing:RegisterTargets",
+                "elasticloadbalancing:SetLoadBalancerPoliciesForBackendServer",
+                "elasticloadbalancing:SetLoadBalancerPoliciesOfListener",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": "elasticloadbalancing.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+
+
+aws eks create-cluster \
+   --region us-east-1 \
+   --name my-cluster \ 
+   --kubernetes-version 1.21 \ 
+   --role-arn arn:aws:iam::314143977634:role/eks-cluster \
+   --resources-vpc-config subnetIds=subnet-09605f1a80f800fdb,subnet-0d11b8fbdb5b4b998,securityGroupIds=	sg-06bfb876fee30651a
+   
+aws eks create-cluster \
+   --region us-east-1 \
+   --name my-cluster \
+   --kubernetes-version 1.21 \
+   --role-arn arn:aws:iam::314143977634:role/eks-cluster \
+   --resources-vpc-config subnetIds=subnet-09605f1a80f800fdb,subnet-0d11b8fbdb5b4b998,securityGroupIds=sg-06bfb876fee30651a
+
+
+
+AKIAUSJDQWCRLCK47WXN id
+0k7VNkynQIShM0OIkHeJdZNk3mxsMG7rsd/szQet key
+
+
+aws eks update-kubeconfig --region us-east-1 --name eks-cluster --role-arn arn:aws:iam::314143977634:role/eks-cluster
+
+aws sts assume-role --role-arn arn:aws:iam::314143977634:role/eks-cluster --role-session-name test
+aws eks --region us-east-1 describe-cluster --name eks-cluster --query 
+cluster.status
+
+arn:aws:iam::314143977634:instance-profile/ec2-cluster
+
+arn:aws:iam::314143977634:role/ec2-cluster
+
+arn:aws:iam::314143977634:user/eks
+
+
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-twp.html
+
+
+
+
+eksctl create cluster \
+--name test-cluster \
+--version 1.21 \
+--region us-east-1 \
+--nodegroup-name k8s-nodes \
+--node-type t2.micro \
+--nodes 2

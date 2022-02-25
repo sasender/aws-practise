@@ -20,8 +20,6 @@ referd links: https://www.fosstechnix.com/how-to-create-eks-cluster-in-aws-2-ste
 https://medium.com/codex/create-kubernetes-cluster-on-aws-eks-6ced4c488e62#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImNhMDA2MjBjNWFhN2JlOGNkMDNhNmYzYzY4NDA2ZTQ1ZTkzYjNjYWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDI3NDQwNTEsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjExMjc4NDY4ODc4NjAxNzQ3NTI1MCIsImVtYWlsIjoic2FzZW5kZXIxMjNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJDaGlsa3VyaSBTYXNlbmRlciBSZWRkeSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHamdjNVQzM1JsWW1ZZ2dhR1lNQkZsaUJDc2RfX1drYUFTU1hKWmVWQT1zOTYtYyIsImdpdmVuX25hbWUiOiJDaGlsa3VyaSBTYXNlbmRlciIsImZhbWlseV9uYW1lIjoiUmVkZHkiLCJpYXQiOjE2NDI3NDQzNTEsImV4cCI6MTY0Mjc0Nzk1MSwianRpIjoiMTg3MGIzYzQxYjA4MDk0NGFlMTU5ODRkMDdiZmMzZDdiOTZlZWRhZCJ9.XZSwRysDo9xyZlSkiACG7aMgf6UWtJYtLc-H3rfbSrEiJmB8WvISNHqayZDtjLFMCZ0zmECkb4BXo43GNnHSGRj09o9EY7iWIekEIi0uDqjW9A-FwCe6ej9e0Yy7YUWYW_PmN11ry4t1j7aha4UgzVCvYVnxuktatEW-47Aj6eZhDf0VWUFRTCI81w7F4wnoXkjS3clWWrEzJ_girj5K8isRl3w_HRKw740Sg8Y-LhF_0wAMMjOsK-qI-gulIUlj3Qowtw5br22HR8ilkbMRbgDIX6b8VYiOl8HVRKECSL3QPgq4VZTiQcSmvgUX0yD8jN6ljAW5lU5rj5h5WdcKlw
 
 https://github.com/RekhuGopal/PythonHacks/blob/main/AWSBoto3Hacks/EFK-Stack-On-AWS-EKS/EKF_Commands.json
-
-https://logz.io/blog/amazon-eks-cluster/
 ------------------------------------------------------------------------------------------
 helm installation:
 https://devopscube.com/install-configure-helm-kubernetes/
