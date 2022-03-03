@@ -26,3 +26,6 @@ aws s3 cp s3://practise-02 s3://cheguveera --recursive
 aws s3 sync s3://cheguveera buckets/
 
 https://martinbuberl.com/blog/backup-amazon-s3-bucket-with-aws-cli/
+
+aws s3 cp s3://cheguveera .
+aws s3 cp s3:// s3://cheguveera --recursive

@@ -26,74 +26,25 @@ https://logz.io/blog/amazon-eks-cluster/
 helm installation:
 https://devopscube.com/install-configure-helm-kubernetes/
 ---------------------------------------------------------------------------------------------
-
-
-
-
-aws eks create-cluster \
-   --region us-east-1 \
-   --name eks-cluster \
-   --kubernetes-version 1.21 \
-   --role-arn arn:aws:iam::326413622254:role/demo-cluster \
-   --resources-vpc-config subnetIds=subnet-0a036bf06979f3b15,subnet-0d2683a99fb6624b9,subnet-0122a04eed942d886,subnet-083364fe76c074a89,securityGroupIds=sg-0fb735b3673fdd2d5
-   
-   
-   arn:aws:iam::326413622254:role/eks-cluster 
-   
-   subnet-0a036bf06979f3b15 
-   subnet-0d2683a99fb6624b9
-   subnet-0122a04eed942d886
-   subnet-083364fe76c074a89
-   
-   sg-0fb735b3673fdd2d5
-   
-   arn:aws:iam::326413622254:user/eks
-   
-   arn:aws:iam::326413622254:role/dummy
-   arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy
-   
-   
-   
    
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
 	alb.ingress.kubernetes.io/subnets: subnet-083364fe76c074a89, subnet-0a036bf06979f3b15
 
-
-
-
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-	
-   
-   
-   
-   arn:aws:iam::326413622254:role/demo-cluster
    
    aws eks update-kubeconfig \
     --region us-east-1 \
     --name eks-cluster \
     --role-arn arn:aws:iam::<aws_account_id>:role/<role_name>
-   
-   
-   
-   
-   
-   
-   
-   arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
-   
-   AKIAUX76ETPXO5KK5X2R
-   rsMnn9s1qIdH2ccFoq9NTztFykdpSJSto//kd+kg
+  
    
    
    aws eks --region us-east-1 update-kubeconfig --name demo
    
-   
-   
-   
+  ==========================================================================================================================================
+cluster creation formula:
+=========================  
    
 aws eks create-cluster \
 >    --region us-east-1 \
@@ -103,7 +54,6 @@ aws eks create-cluster \
 >    --resources-vpc-config subnetIds=subnet-0a036bf06979f3b15,subnet-0d2683a99fb6624b9,subnet-0122a04eed942d886,subnet-083364fe76c074a89,securityGroupIds=sg-0fb735b3673fdd2d5
 
 
-arn:aws:iam::326413622254:policy/alb-ingress
 
 
 eksctl create iamserviceaccount \
@@ -131,17 +81,6 @@ arn:aws:iam::326413622254:policy/ALBIngressControllerIAMPolicy
 arn:aws:iam::326413622254:policy/alb-ingress	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 aws iam create-policy \
     --policy-name alb-ingress \
     --policy-document https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/iam-policy.json	
@@ -183,8 +122,9 @@ aws iam create-policy --policy-name ALBIngressControllerIAMPolicy --policy-docum
 
 
 
-
-
+====================================================================================================================================
+ eksctl commnd line through create iam service account
+ -----------------------------------------------------
 eksctl create iamserviceaccount \
       --cluster=eks-cluster \
       --namespace=kube-system \
@@ -192,25 +132,13 @@ eksctl create iamserviceaccount \
       --attach-policy-arn=arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy \
       --override-existing-serviceaccounts \
       --approve
-
-	
-	
-	
-	
-   
-   
-   
-   
-   
-   
-   
-
+	  
 eksctl-eks-cluster-addon-iamserviceaccount-k-Role1-189DHRWZAP60K
 
 aws iam attach-role-policy \
   --role-name eksctl-eks-cluster-addon-iamserviceaccount-k-Role1-189DHRWZAP60K \
   --policy-arn arn:aws:iam::326413622254:policy/AWSLoadIAMPolicy   
-   
+========================================================================================================================================   
    
    
    
@@ -218,7 +146,7 @@ aws iam attach-role-policy \
    
 eksctl delete cluster --name=eks-cluster   
    
-   
+ eksctl delete cluster --name=my-cluster   
    
    
    
@@ -229,3 +157,107 @@ eksctl create cluster \
 --nodegroup-name k8s-nodes \
 --node-type t2.micro \
 --nodes 2   
+
+
+
+arn:aws:iam::314143977634:user/eks
+
+
+aws eks create-cluster \
+>    --region us-east-1 \
+>    --name eks-cluster \
+>    --kubernetes-version 1.21 \
+>    --role-arn arn:aws:iam::326413622254:role/demo-cluster \
+>    --resources-vpc-config subnetIds=subnet-0a036bf06979f3b15,subnet-0d2683a99fb6624b9,subnet-0122a04eed942d886,subnet-083364fe76c074a89,securityGroupIds=sg-0fb735b3673fdd2d5
+
+
+eksctl create cluster \
+--name my-cluster \
+--version 1.21 \
+--region us-east-1 \
+--resources-vpc-config subnetIds=subnet-0aa73a4a64c6121a8,subnet-05759105d0536e21f,subnet-0d11b8fbdb5b4b998,securityGroupIds=sg-06bfb876fee30651a
+
+
+vpc-020571e430369cf00
+
+subnet-0aa73a4a64c6121a8 private
+subnet-05759105d0536e21f private
+subnet-0d11b8fbdb5b4b998 public
+
+sg-06bfb876fee30651a
+
+arn:aws:iam::314143977634:role/ec2-cluster
+
+
+
+
+
+
+
+
+-------------------------->>>>>>>>>>>>>>>>>>.._______--------------------------------------
+
+https://medium.com/avmconsulting-blog/deploying-a-kubernetes-cluster-with-amazon-eks-9455e7e7828
+
+-----------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------
+eks cluster overhanded to the another users :
+---------------------------------------------
+1)
+at every time it is not best practise to acces the eks cluster through admini credentials
+2)
+in thise senario we need to create a normal user with out any ermissions 
+3)
+then next create a policys in iam services in aws in that policy contains the only eks permission if we want referd the amazon document 
+4)
+afetr create a group at iam then add the policys which are created previously
+5)
+then add the user which we created befor without any permissions add that user to groups
+6)
+and go to the cli prompt which were we crated eks cluster prevoulsy with admin privillages
+afetr excute thise commnds
+7)
+create role and rolebinding for user
+8)
+and modified the user [ex:free ] arn details in the configmap in kubernetes cluster
+9)
+create the role and cluster rolebinding for free user just copy the below url and see there clusetrrole file and rolebinding file
+10)
+and copy the code and create a file in kubernets cluster no need to edit that file 
+11)
+apply the file by using kubectl commnd
+12)
+edit the config mp by using thise commnd 
+13)
+kubectl edit configmap aws-auth -n kube-system
+14)
+by using thise commnd we can configured the user detalis
+ 
+-------------------[aws configure --profile free]
+
+aws eks update-kubeconfig --region us-east-1 --name my-cluster --profile free
+
+by using above commnd update the kubeconfig with our role name or username in our ec2 instance
+
+by using thise commnd we can edit aws-auth config file [kubectl edit configmap aws-auth -n kube-system]
+
+by using thise commnd configure user accses to thre ec2 instance
+ 
+aws configure --profile free
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+links:
+
+https://www.youtube.com/watch?v=BuBDYFet0hI
+
+https://docs.aws.amazon.com/eks/latest/userguide/security_iam_id-based-policy-examples.html#policy_example3
+
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-object-access-error/
+
+https://www.agilepartner.net/en/adding-users-to-your-eks-cluster/
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
