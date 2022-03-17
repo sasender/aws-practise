@@ -1,63 +1,64 @@
 -----
 ---------------->>>>>>MY-SQL FROMULAS DUMP AND BACKUP AND CONNECTING FROM RDS TO OUR LOCAL INSTANSES<<<<<<<<<<<<---------
-connecting to the local server from rds mysql :[ by using aws database ]
+connecting to the local server from rds mysql :
 ---->>>>--------+++>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-  connceting to the data base;
 
   mysql -h [paste the rds url rds.amazonaws.com] -P 3306 -u admin -p
   -u mention user name 
-  
-  ----------------------------------------------------------------------------
-  mysqldump from the aws to our local:
-  
-  mysqldump -h [paste the rds url rds.amazonaws.com] -u admin -p [database name] > [file_name for dumping]
-  
-  ex: [   mysqldump -h sasender.clip.ap-south-1.rds.amazonaws.com -u admin -p sasha > backup_my_database_11-feb.sql ]
-  
-  -----------------------------------------------------------------------------------------------------------
-  
-  restore to the database:
-  ---------------------
-  mysql -h resuit-development.cwyx6phkufuw.us-east-1.rds.amazonaws.com -P 3306 -u admin -p resuit_ratings < 'resuit_ratings (7).sql'
-  
-  mysql -h [paste the rds url rds.amazonaws.com] -P 3306 -u [username] -p [database name to restore the file s] < [file_name]
-  
-  ---------------------------------------===================____________----------------------------------------------------------------
-  
-  
-  in local server commnd : whether the database is sitting on the our local server we can use thse commnds:
-  
-  ----------------------------------------------------------------------------------------------------------
-  connceting database-name:
- ------------------------------------------------
+  ---------------------------------------
+  in local server commnd :
+ 
   mysql -u anahatdoodleblue -p 
   --------------------------------------------
-  mysql -u [user name] -p [password]
-  --------------------------------------------
   
-  dump or backup the data from database:
-  ======================================
-  mysqldump -u root -p  sasha > sasha_dump.sql
-  
-  ------------------------------------------------
-  restore the data to database;
-  --------------------------
-  mysql -u whd -p whd < [file-name] whd is database name 
-  
-  mysql -u root -p sasha < [file_name]
-  
-  ------------------------------------------------------ 
+  dump from rds to our local server through the backup:
+  --------=====++++++=========+++++++=================== 
+   mysqldump -h sasha.cpnljlnpjqla.ap-south-1.rds.amazonaws.com -u admin -p sasha > backup_my_database_11-feb.sql
+   
+   DROP TABLE [IF EXIST] [table 1], [table 2], [table n];
+   drop table [if exist] 
+   
+   
+   mysqldump -h [paste the rds url rds.amazonaws.com] -u admin -p [sasha] > backup_my_database_11-feb.sql
+   
+   sasha--- thise is the file i want to trying take backup
+   
+   mysqldump -h resuit-development.cwyx6phkufuw.us-east-1.rds.amazonaws.com -u admin -p  > resuit-bakup-07-march.sql
+   
+   mysql -h resuit-development.cwyx6phkufuw.us-east-1.rds.amazonaws.com -P 3306 -u admin -p resuit_ratings < 'resuit_ratings (7).sql'
+   
+   mysql 
+   
+   mysql -u whd -p whd < C:\whdbackup.sql
+   
+   
+   
 ---------++++++++>>>>>>>>>====================  =================================================================================================================================================
 
 
+how to conncet the mysql server in local :
+  
+  
+  
+how to take a dump from my sql server to my local insatnces:
+
+  mysqldump -u root -p  sasha > sasha_dump.sql
+  
+-------------------------------------------------------------------------------------------------  
+  restoring 
+  mysql --one-database sampledb  <  all_databases.sql
+  
+  mysql -u root -p sasha < [file_name]
+  
+  ---------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------- 
+  
 links:
 https://www.fastwebhost.in/blog/how-to-backup-mysql-databases-via-command-line/  
 
-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-========>>>>>>>>>>>>>>>>>>>>>>>>>>MONGODB<<<<<<<=================================================================================
+========>>>>>>>>>>>>>>>>>>>>>>>>>>MONGODB<<<<<<<==============
 connecting to through commnd line :
 ------------------------------------
 take a dump file from from amazon document db :
@@ -68,7 +69,12 @@ mongo connecting:
    -----------------------------------------------------------------------------------------------------------------------------------
    ex:
    mongo --host ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password OlEpRoDuTiOn\$2021
-   ------------------------------------------------------------------------------------------------------------------------------------ 
+   ------------------------------------------------------------------------------------------------------------------------------------
+   
+  mongo --host ole-bevilles-prod-sydney.cluster-cn7lx17mcru6.ap-southeast-2.docdb.amazonaws.com:27017 --username bevillesprod --password WGgADxBv9UWuFB54
+  --------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  mongo --host ole-bevilles-prod-sydney.cluster-cn7lx17mcru6.ap-southeast-2.docdb.amazonaws.com:27017 --username bevillesprod --password 
   ---------------------------------------------------------------------------------------------------------------------------------------
    data import from server  to the databse or restore the database:
    +=================================================+
@@ -102,25 +108,36 @@ mongodump:
 
 =========++++++===========++++++++++++++===============+++++++++++++++=============++++++++++++++++++++++++++++================================
 
-in the local server mongodump:
--------------------------------
+examples:
+
+
+mongodb://oleprodnv:OlEpRoDuTiOn$2021@ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017/ole_cms
+
+
+
+mongo --host ole-creator-cms.ccnzm4mtfue7.ap-south-1.docdb.amazonaws.com:27017 --username ole --password
+
+
+
+mongodb://oleprodnv:OlEpRoDuTiOn$2021@ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017/ole_cms
+
+
+
+
+mongo --host ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017 --username oleprodnv --password <insertYourPassword>
+
+
+
 
 mongodump -u [username] --db [db -name] -p password > dump 
 
 mongodump -u fftluser --db fftldb -p wdMW6bSvK7AT > fftl_dump
-
---------------------------------------------------------------------------------------------------------------------------
-
-
-from mongo atlas:
------------------
 
 mongodump --forceTableScan --uri mongodb+srv://giri:9ybK9hFQcHYbf1og@doodle.3vbtb.mongodb.net/ole_cms
 
 
 mongodump --authenticationDatabase=fftldb -u=fftlnew -p=Doodle1213
 
--------------------------------------------------------------------------------------------------------------
 
 
 sudo mongodump --host="ole-prod-nv.cluster-c3nwl6mdghih.us-east-1.docdb.amazonaws.com:27017" --db=ole_cms -o ole_cms_bkp_11_02_22 --username=oleprodnv --password=OlEpRoDuTiOn$2021
@@ -132,13 +149,22 @@ creatorgb.ole-solutions.com
 
 
 
+
+
+
 mongoimport --host="ole-bevilles-prod-sydney.cluster-cn7lx17mcru6.ap-southeast-2.docdb.amazonaws.com:27017" --db=ole_cms --type json --file=ole_cms-bkp-15-03-22.json --username=bevillesprod --password=WGgADxBv9UWuFB54
  
  mongorestore --host="ole-bevilles-prod-sydney.cluster-cn7lx17mcru6.ap-southeast-2.docdb.amazonaws.com:27017" --username=bevillesprod --password=WGgADxBv9UWuFB54 --db=ole_cms ole_cms
      
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
+ 
+ 
+mongoimport --host meradoc-prod-docdb.cluster-cpngqevvfdbw.ap-south-1.docdb.amazonaws.com:27017 --db meradoc_user --type json --file familymembers.json --jsonArray --username username --password password
 
 
-
+mongorestore -h [IP of server] -d [databaseName] -u [username] -p [password] [local directory of backup image]
 
 

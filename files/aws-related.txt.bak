@@ -26,3 +26,26 @@ aws s3 cp s3://practise-02 s3://cheguveera --recursive
 aws s3 sync s3://cheguveera buckets/
 
 https://martinbuberl.com/blog/backup-amazon-s3-bucket-with-aws-cli/
+
+aws s3 cp s3://cheguveera .
+aws s3 cp s3:// s3://cheguveera --recursive
+
+aws s3 ls s3://YOUR_BUCKET --recursive --human-readable  --summarize  --->>> to show the count of obects in the specified bucket 
+
+aws s3 ls s3://YOUR_BUCKET/folder/ --recursive --human-readable  --summarize
+
+-------------------------------------------------------------------------------------------------
+ansible:
+https://blogs.tensult.com/2019/12/19/how-to-setup-ansible-master-slave-install-apache-web-server/
+
+https://devopsarticle.com/how-to-install-and-configure-ansible-on-ubuntu-20-04-2021-devops-article/
+
+
+------------------------------------------------------------------------------------------------------
+
+
+ssl domain mapping :
+https://upcloud.com/community/tutorials/install-lets-encrypt-apache/
+
+--------------------------------------------------------------------------------------------------
+

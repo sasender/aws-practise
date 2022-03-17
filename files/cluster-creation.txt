@@ -261,3 +261,19 @@ https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-object-acc
 https://www.agilepartner.net/en/adding-users-to-your-eks-cluster/
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+promethuses alaerts :
+https://devopscube.com/alert-manager-kubernetes-guide/
+
+-------------------------------------------------------
+https://medium.com/trendyol-tech/alert-and-monitoring-with-grafana-b659c433bb51
+
+https://kifarunix.com/configure-grafana-email-alerting/
+
+https://devopscube.com/setup-grafana-kubernetes/
+
+https://devopscube.com/setup-grafana-kubernetes/
+
+
+--------------------------------------------------------------------------
+trobleshooting in kubernets :
+https://learnk8s.io/troubleshooting-deployments#:~:text=There%20are%20four%20useful%20commands%20to%20troubleshoot%20Pods%3A,definition%20of%20the%20Pod%20as%20stored%20in%20Kubernetes.
