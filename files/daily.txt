@@ -54,6 +54,31 @@ Anahat	Production setup
 OLE	Production support
 ---------------------------------------------------------------------
 
+--------------------------------------------------------------
+CP	Need to buy domain and do AWS set up for launch.	Sasinder
+
+Sasha	Deployment support	Sasinder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -409,6 +409,10 @@ https://github.com/futurice/terraform-examples
 teraform modules:
 combination of multiple resouses or group of r.tf files in at one place 
 module= group of resorses or small pieces of large amount
+================================================================
+The Terraform null_resourceis commonly used to run scripts on a specified trigger.
+
+https://bogotobogo.com/DevOps/Ansible/Ansible-Terraform-null_resource-local-exec-remote-exec-triggers.php
 
 
 

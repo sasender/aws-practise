@@ -277,3 +277,11 @@ https://devopscube.com/setup-grafana-kubernetes/
 --------------------------------------------------------------------------
 trobleshooting in kubernets :
 https://learnk8s.io/troubleshooting-deployments#:~:text=There%20are%20four%20useful%20commands%20to%20troubleshoot%20Pods%3A,definition%20of%20the%20Pod%20as%20stored%20in%20Kubernetes.
+
+---------------------------------------------------
+helm charts:
+https://adamtheautomator.com/kubernetes-helm/
+--------------------------------------------------------
+
+links:
+https://faun.pub/static-pods-in-kubernetes-29fe8063bf96

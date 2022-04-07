@@ -1,0 +1,6 @@
+mongo db to dynamo db data migration:
+-------------------------------------
+https://www.developer.com/database/migrating-mongodb-to-dynamodb-part-1/
+
+
+--------------------------------------------------------------------------

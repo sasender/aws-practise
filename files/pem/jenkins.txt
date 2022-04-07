@@ -1,0 +1,19 @@
+From ubuntu:latest
+RUN apt update && apt install openssh-server sudo -y 
+RUN sudo apt install -y default-jdk
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 jenkins
+RUN echo 'jenkins:jenkins' | chpasswd
+RUN service ssh start 
+EXPOSE 22
+WORKDIR /home/ubuntu
+
+docker run -dit -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+
+
+https://devopscube.com/docker-containers-as-build-slaves-jenkins/
+
+https://discuss.devopscube.com/t/how-to-setup-jenkins-using-docker-with-a-host-mount/83
+
+https://octopus.com/blog/jenkins-docker-install-guide
+
+

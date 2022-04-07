@@ -1,0 +1,8 @@
+https://www.codegrepper.com/code-examples/shell/pm2+kill+all+processes
+
+
+https://www.agilepartner.net/en/adding-users-to-your-eks-cluster/  cluster user 
+
+
+kubeadm join 172.31.5.249:6443 --token i5nv57.ky9sv2i0126yml4q \
+        --discovery-token-ca-cert-hash sha256:8683779fc41b9dd2c74bd826b3d3976625c750c7896a63bda7dce22bef2cc6fc

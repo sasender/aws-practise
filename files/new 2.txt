@@ -6,3 +6,79 @@ https://www.agilepartner.net/en/adding-users-to-your-eks-cluster/  cluster user
 
 kubeadm join 172.31.5.249:6443 --token i5nv57.ky9sv2i0126yml4q \
         --discovery-token-ca-cert-hash sha256:8683779fc41b9dd2c74bd826b3d3976625c750c7896a63bda7dce22bef2cc6fc
+		
+
+
+
+https://accounts.google.com/b/0/DisplayUnlockCaptcha
+
+ it looks like something is killing the process via signal. There's many different reasons this could be the case, including system resource utilization or configuration options. Can you show us what your chef recipe looks like
+ 
+ 
+ 9440003636
+ 
+ Safepoint "Cleanup", Time since last: 16001741547 ns, Reaching safepoint: 90411 ns, At safepoint: 4920 ns, Total: 95331 ns
+ 
+ 
+ 
+ ------------------------------------------------------------------------
+ pipeline {
+  agent any 
+  environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker-login')
+	}
+  tools {
+		maven 'maven3.8.2'
+	}
+    stages {
+	    stage ('git clone') {
+	    
+		    steps {
+		     git 'https://github.com/sasender/spring-boot-mongo-docker.git'
+		  
+		    }
+		}
+		
+		stage ('mvn build') {
+		    
+			steps {
+			  sh 'mvn --version'
+			  sh 'mvn clean package'
+			}
+		}
+		
+		stage ('docker build') {
+            
+            steps {
+                sh 'docker build -t sasender/spring-boot-mongo .'
+                
+            }
+		}
+		
+		
+		stage ('docker login') {
+		    
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+				
+		}
+		
+		stage ('docker push') {
+		    steps {
+			    sh 'docker push sasender/spring-boot-mongo'
+			}	
+		
+		}
+		
+		stage ('kubernetes') {
+		    steps {
+			    kubernets deploy (
+				configs: 'springBootMongo.yml', 
+                kubeconfigId: '8367a0b4-a1f9-4cd9-863e-8b8e553b3142 (KUBERNETES)',
+                enableConfigSubstitution: true
+                )
+			}
+		}	
+	}
+}
