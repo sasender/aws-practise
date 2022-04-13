@@ -1,0 +1,172 @@
+
+
+
+6db2871d-eb96-441f-96ce-08ce70ea4dd3 docker token
+
+
+
+
+
+
+------------------------------------------------
+Startup errors include:  pods start up error 
+
+ImagePullBackoff
+ImageInspectError
+ErrImagePull
+ErrImageNeverPull
+RegistryUnavailable
+InvalidImageName
+------------------------------------------
+Runtime errors include:
+
+CrashLoopBackOff
+RunContainerError
+KillContainerError
+VerifyNonRootError
+RunInitContainerError
+CreatePodSandboxError
+ConfigPodSandboxError
+KillPodSandboxError
+SetupNetworkError
+TeardownNetworkError
+
+ole-bevilles-prod-sydney
+
+
+-----------------------------------------------
+mongodump --ssl \
+    --host="practise.cluster-cff5z7cjxi2j.us-east-1.docdb.amazonaws.com:27017" \
+    --collection=sample-collection \
+    --db=sasender \
+    --out=sample \
+    --numParallelCollections 4  \
+    --username=sasender \
+    --password=sasender \
+    --sslCAFile rds-combined-ca-bundle.pem
+
+
+
+
+-------------------------------------------------------------------------
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ListObjectsInBucket",
+            "Effect": "Allow",
+            "Action": ["s3:ListBucket"],
+            "Resource": ["arn:aws:s3:::bucket-name"]
+        },
+        {
+            "Sid": "AllObjectActions",
+            "Effect": "Allow",
+            "Action": "s3:*Object",
+            "Resource": ["arn:aws:s3:::bucket-name/*"]
+        }
+    ]
+}
+
+----------------------------------------------------------------------------------
+
+
+server {
+    server_name bevilesprodapi.ole-solutions.com;
+
+    location / {
+    proxy_pass http://localhost:2380;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+    }
+
+
+    listen 443 ssl;
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+server {
+    if ($host = bevilesprodapi.ole-solutions.com) {
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name bevilesprodapi.ole-solutions.com;
+    return 404;
+
+}
+
+
+
+
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+
+
+---------------------------------------------------
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::ole-viewer-cms-prod"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": "arn:aws:s3:::ole-viewer-cms-prod/*"
+        }
+    ]
+}
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bevilles-production-model-files",
+                "arn:aws:s3:::bevilles-production-model-files/*"
+            ]
+        }
+    ]
+}
+
+-----------------------------------------------------------------------
+
+

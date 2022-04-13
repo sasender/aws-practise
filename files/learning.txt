@@ -1,0 +1,141 @@
+server {
+    listen 80;
+    server_name ole-solutions.com;
+    return 301 https://www.ole-solutions.com/$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name ole-solutions.com;
+
+    location /olecreator2 {
+                # as directory, then fall back to displaying a 404.
+                proxy_pass http://127.0.0.1:2380;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+
+                #try_files $uri $uri/ =404;
+        }
+
+    ssl_certificate /etc/ssl/ole-solutions.com/bundle_1.crt;
+    ssl_certificate_key /etc/ssl/ole-solutions.com/ole-solutions.key;
+
+}
+
+http {
+    proxy_cache_path  /data/nginx/cache  levels=1:2    keys_zone=STATIC:10m
+    inactive=24h  max_size=1g;
+    server {
+        location / {
+            proxy_pass             http://1.2.3.4;
+            proxy_set_header       Host $host;
+            proxy_buffering        on;
+            proxy_cache            STATIC;
+            proxy_cache_valid      200  1d;
+            proxy_cache_use_stale  error timeout invalid_header updating
+                                   http_500 http_502 http_503 http_504;
+        }
+    }
+}
+
+
+
+https://www.ole-solutions.com/olecreator2
+
+
+1] all tables delation
+ src code backup for that https://anahatdoodleblue.kinsta.cloud/
+  replace the doodle blue src code
+  
+  
+  2] once doodle databse import
+  
+  3] configuration changes
+  
+  
+  db.t3.medium
+  t3.a medium
+  t3a.medium
+2 cpu
+4  ram
+
+t3a.medium	$0.0475	2	4 GiB sydeny =$38.27 USD
+db.t3.medium	4 GiB	2	$0.119/hr*sydeny=$86.87
+
+t3a.medium	$0.0376	2	4 GiB  n verginia 28.2
+  
+   
+  db.t3.medium	4 GiB	2	$0.078/hr*=n verginia 58.5  
+  https://ubiq.co/tech-blog/redirect-url-nginx/
+  
+  
+
+pipeline{
+    agent any
+    tools {
+        maven 'MAVEN'
+    }
+    stages {
+        stage('Build Maven') {
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'devopshint', url: 'https://github.com/devopshint/jenkins...]]])
+
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                  sh 'docker build -t devopshint/my-app-1.0 .'
+                }
+            }
+        }
+        stage('Deploy Docker Image') {
+            steps {
+                script {
+                 withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                    sh 'docker login -u devopshint -p ${dockerhubpwd}'
+                 }  
+                 sh 'docker push devopshint/my-app-1.0'
+                }
+            }
+        }
+    }
+}
+  
+ 
+ -------------------------------------------------------------------
+ https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
