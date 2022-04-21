@@ -20,7 +20,7 @@ InvalidImageName
 ------------------------------------------
 Runtime errors include:
 
-CrashLoopBackOff
+#CrashLoopBackOff
 RunContainerError
 KillContainerError
 VerifyNonRootError
