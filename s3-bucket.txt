@@ -13,3 +13,5 @@ sudo aws s3 ls
 
 
 https://cloudkatha.com/is-s3-region-specific-or-global-what-do-you-think/
+
+https://www.stackvidhya.com/download-all-files-from-aws-s3-cli-ubuntu/   download s3 buclet files from cloud to local 
