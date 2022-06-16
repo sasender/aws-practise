@@ -51,3 +51,5 @@ https://www.stackvidhya.com/download-all-files-from-aws-s3-cli-ubuntu/   downloa
 
 
 https://www.nakivo.com/blog/how-to-backup-an-amazon-s3-bucket/
+
+https://www.middlewareinventory.com/blog/ec2-s3-copy/
