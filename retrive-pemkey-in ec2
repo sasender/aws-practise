@@ -1,0 +1,21 @@
+if we lost the pem key unfortunately   
+we will do some procedure to reassign the pem 
+1. we need to launch one more ec2 instance in same vpc and same subnet and sg ,and create a new key pair for newly created instances.
+2. stooped the old instance and detach the volume from old instances. and attached volume to newly created instances 
+3. do the lsblk command we knew its not mounted the new=-volume yet now
+4. do the lsblk -f it shows the blocks of ebs \
+5. start the mount  form using these command  ----->>>>> [ mount -o rw,nouuid /dev/xvdf  /mnt/ ]
+6. check the mounted the volume or not and observe the weather root ebs has added or no using the ls -alh /mnt/ 
+7. if the output shows the root directories, the mount has completed.
+8. then copy the authorized-keys from present instance to /mnt/ directory 
+   ex:  [cp /home/ec2-user/.ssh/authorized keys /mnt/home/ec2-user/.ssh/authorized_keys]
+9. check the both authorizes key are same or not ,  if the both keys are same we can umount  the mnt[ umount /mnt ] by using these command umnount the volumes 
+ and detached from instances to attached orginal instances at the time attaching we need to mention the root volume type  /dev/xvda   
+10. /dev/xvda is the root ebs name,  if we doesn't put these name instance doesn't start 
+11. 
+12. try to the access instance with new pair key 
+
+Referenced links :
+https://youtu.be/UlnVl95OHKU
+
+https://medium.com/the-10x-dev/how-to-recover-access-login-to-your-aws-instance-after-losing-your-pem-keypair-file-e0d31bae2da4
