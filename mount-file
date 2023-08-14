@@ -8,6 +8,6 @@ mkfs.xfs -f /dev/nvme1n1  ---> these commnd is formating the volume
 
 lsblk -o +SERIAL  --->> it shows the which vloume is attached with use of volume id 
 
-
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
 
 
