@@ -1,0 +1,13 @@
+mkdir /data  --->>> create directory 
+
+mount /dev/nvme1n1 /data   --->> mount the volume to that direcoty which is created preveoius commnd
+
+ls -la  check the files in the direcotry 
+
+mkfs.xfs -f /dev/nvme1n1  ---> these commnd is formating the volume 
+
+lsblk -o +SERIAL  --->> it shows the which vloume is attached with use of volume id 
+
+
+
+
