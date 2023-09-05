@@ -1,0 +1,26 @@
+i-0faa15ca2ac270e02
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html
+
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html
+
+
+
+https://repost.aws/knowledge-center/instance-store-vs-ebs
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html
+
+https://aws.amazon.com/ec2/instance-types/
+
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-up-ami-tools.html
+
+
+Instance store is ideal for temporary storage of information that changes frequently, such as buffers, caches, scratch data, and other temporary content
+
+
+ec2-ami-tools-version
