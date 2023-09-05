@@ -114,3 +114,5 @@ lsblk -o +SERIAL
 
 https://platformengineer.com/install-vi-bash-curl-on-alpine-linux/   curl commnds inside the container 
 
+https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421 
+
