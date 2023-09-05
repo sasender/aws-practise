@@ -1,0 +1,24 @@
+rds db-latancy:
+
+aws rds describe-db-instances --query 'DBInstances[*].{DBInstanceIdentifier: DBInstanceIdentifier,Latency: DBInstancePerformance.Latency}'
+
+
+dymnamo-db-latancy
+
+aws dynamodb list-tables --query 'TableNames[*]'
+
+
+sqs -latancy
+
+aws sqs get-queue-attributes --queue-url <your-queue-url> --attribute-names ApproximateAgeOfOldestMessage ApproximateNumberOfMessages
+
+
+
+elastic-cache
+
+aws elasticache describe-cache-clusters --query 'CacheClusters[*].{CacheClusterId: CacheClusterId,Latency: NodeSnapshots[*].CacheNodeIdleTime}'
+
+
+
+aws xray get-trace-summaries --start-time 2022-01-13T23:22:00 --end-time 2022-01-13T23:24:59
+
