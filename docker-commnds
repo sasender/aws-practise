@@ -1,0 +1,116 @@
+#!/bin/bash
+
+CONTAINER_NAME="your-container-name"
+
+while true; do
+if ! docker inspect -f '{{.State.Running}}' "$CONTAINER_NAME" > /dev/null; then
+echo "Container $CONTAINER_NAME is not running. Restarting..."
+docker restart "$CONTAINER_NAME"
+fi
+sleep 10
+done
+
+------------------------------------------------------------------------------
+
+  docker logs <container_id> -f
+-----------------------------------------
+If you want to see the last N log lines:
+
+docker logs 87fe20b3caf7 --tail 100
+
+  ---------------------------------------
+
+  docker logs 97dd80cfc4a3 | grep -i error
+
+  --------------------------------------------
+
+
+  docker container stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}"
+
+docker container stats --no-stream --format "table {{.Name}}\t{{.MEMORYPerc}}"
+
+docker stats --no-stream 866daed03b9d
+
+docker container stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}"
+
+
+  --------------------------------------------------------------------------
+
+  ------------------------------------------------
+disc-uage
+--------------------------------------------------
+du -h | grep G 
+
+du -h | grep M | sort -n -r | head -n 10
+
+
+
+
+
+  
+https://github.com/docker/docs/issues/1520#issuecomment-305179362
+
+----------------------------------------------------------------------
+
+https://www.golinuxcloud.com/linux-check-disk-space/
+------------------------------------------------------
+df -H --output=size,used,avail
+
+
+
+  df -H --output=size,used,avail
+
+
+du -sh
+
+
+
+df -Th 
+
+
+du -sh /var/lib/docker/overlay2 | sort -n -r | head -n 10   it shows the most using storage 
+
+
+du -ch ---- it shows the details space in the subdiretories 
+
+
+
+du -h /var/lib/docker/overlay2 | grep '^\s*[0-9\.]\+G'   its shows the top 10 high disk usage files
+
+
+du -sh /var/lib/docker/overlay2/* | grep '^\s*[0-9\.]\+G'   its shows the sub-directories memory 
+
+du -a /var/lib/docker/overlay2 | sort -n -r | head -n 10   its shows the top 10 high disk usage files 
+
+df -h | awk '{printf "%-20s %s\n", $1, $2}'
+
+du -sh /var/lib/docker/overlay2/8a2822c7585f744a757c0975451cf83207048419909d24ee3d8f2d692e43c42d-init
+
+
+
+
+
+https://repost.aws/knowledge-center/ecs-task-stopped
+
+
+https://aws.amazon.com/blogs/containers/deep-dive-on-amazon-ecs-cluster-auto-scaling/
+
+
+
+https://repost.aws/knowledge-center/ecs-task-stopped
+
+
+
+
+
+https://stackoverflow.com/questions/71409950/github-action-how-to-access-the-inputs
+
+
+
+
+whois 172.66.40.192 | grep -E -i "(OrgName:|address:|OrgTechName:|descr:)"
+
+lsblk -o +SERIAL
+
+https://platformengineer.com/install-vi-bash-curl-on-alpine-linux/   curl commnds inside the container 
+
